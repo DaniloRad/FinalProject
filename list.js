@@ -62,11 +62,22 @@
 
                 var movies = document.getElementsByClassName("movie");
 
-                for (let i = 4; i < 20; i++) {
+                for (let i = 4; i < movies.length; i++) {
 
                     movies[i].style.display = "none";
 
                 }
+                for (let i = 0; i < movies.length / 4; i++) {
+
+                    var aElement = document.createElement("a");
+                    aElement.setAttribute("id", i + 1);
+                    aElement.innerHTML = i + 1;
+                    document.getElementsByClassName("page_num")[0].append(aElement);
+                }
+                var aElement = document.createElement("a");
+                aElement.setAttribute("id", "next");
+                aElement.innerHTML = "Next";
+                document.getElementsByClassName("page_num")[0].append(aElement);
 
 
             })
@@ -75,9 +86,9 @@
     var search_button = document.getElementById("search_button");
     var mark = document.getElementById("vote_average").value;
 
-    search_button.addEventListener("click", (function() {
+    search_button.addEventListener("click", (function () {
         SearchForMovie(mark.value)
-    } ) );
+    }));
 
     function SearchForMovie(mark) {
 
@@ -86,9 +97,9 @@
         var pathToImg = "http://image.tmdb.org/t/p/w185/";
         var listHTML = document.getElementsByClassName("list")[0];
 
-        document.getElementsByClassName("list")[0].innerHTML="";
-            
-        
+        document.getElementsByClassName("list")[0].innerHTML = "";
+
+
         for (let i = 0; i < mainArray.length; i++) {
 
             var displaying = false;
@@ -110,22 +121,22 @@
 
             } else if (filter === "genre_ids") {
 
-            var obj=MovieGenre(mainArray[i].genre_ids);
-                for (let i=0;i<obj.length;i++) {
+                var obj = MovieGenre(mainArray[i].genre_ids);
+                for (let i = 0; i < obj.length; i++) {
 
-                   
-                    if(obj[i].indexOf(search_input)>-1) {
 
-                        displaying=true;
-                       
+                    if (obj[i].indexOf(search_input) > -1) {
 
-                    } 
+                        displaying = true;
+
+
+                    }
 
                 }
 
             }
-            if(mark>mainArray[i].vote_average) {
-                displaying=false;
+            if (mark > mainArray[i].vote_average) {
+                displaying = false;
             }
             if (displaying) {
 
@@ -161,6 +172,7 @@
                 div.append(movieColumn2);
                 listHTML.append(div);
 
+
             }
         }
         LimitedLoad();
@@ -169,67 +181,67 @@
 
     function MovieGenre(array) {
 
-        var genreName=[];
+        var genreName = [];
         for (let i = 0; i < array.length; i++) {
 
             if (array[i] === 28) {
-                genreName[i] =  "action";
+                genreName[i] = "action";
             } else if (array[i] === 16) {
-                genreName[i]= "animated";
+                genreName[i] = "animated";
 
             } else if (array[i] === 16) {
-                genreName[i]= "animated";
+                genreName[i] = "animated";
 
             } else if (array[i] === 99) {
-                genreName[i]= "documentary";
+                genreName[i] = "documentary";
 
             } else if (array[i] === 18) {
-                genreName[i]= "drama";
+                genreName[i] = "drama";
 
             } else if (array[i] === 10751) {
-                genreName[i]= "family";
+                genreName[i] = "family";
 
             } else if (array[i] === 14) {
-                genreName[i]= "fantasy";
+                genreName[i] = "fantasy";
 
             } else if (array[i] === 36) {
-                genreName[i]= "fistory";
+                genreName[i] = "fistory";
 
             } else if (array[i] === 35) {
-                genreName[i]= "comedy";
+                genreName[i] = "comedy";
 
             } else if (array[i] === 10752) {
-                genreName[i]= "war";
+                genreName[i] = "war";
 
             } else if (array[i] === 80) {
-                genreName[i]= "crime";
+                genreName[i] = "crime";
 
             } else if (array[i] === 10402) {
-                genreName[i]= "music";
+                genreName[i] = "music";
 
             } else if (array[i] === 9648) {
-                genreName[i]= "mystery";
+                genreName[i] = "mystery";
 
             } else if (array[i] === 10749) {
-                genreName[i]= "romance";
+                genreName[i] = "romance";
 
             } else if (array[i] === 878) {
-                genreName[i]= "sci-fi";
+                genreName[i] = "sci-fi";
 
             } else if (array[i] === 27) {
-                genreName[i]= "horror";
+                genreName[i] = "horror";
 
             } else if (array[i] === 10770) {
-                genreName[i]= "tv movie";
+                genreName[i] = "tv movie";
 
             } else if (array[i] === 53) {
-                genreName[i]= "thriller";
+                genreName[i] = "thriller";
 
             } else if (array[i] === 37) {
-                genreName[i]= "western";
+                genreName[i] = "western";
 
             } else if (array[i] === 12) {
-                genreName[i]= "pleasure";
+                genreName[i] = "pleasure";
 
             }
 
@@ -252,7 +264,8 @@
             LimitedLoad();
 
         } else if (e.target.getAttribute("id") === "next") {
-            if (cnt === movies.length / 4) {
+            console.log(cnt)
+            if (cnt >= movies.length / 4) {
                 alert("Nema vise stranica")
             } else {
                 cnt++;
@@ -262,7 +275,7 @@
 
 
         } else if (e.target.getAttribute("id") === "prev") {
-            if (cnt === 1) {
+            if (cnt <= 1) {
                 alert("Nema vise stranica")
             } else {
                 cnt--;
@@ -270,32 +283,50 @@
                 LimitedLoad();
             }
         }
-}
-        function LimitedLoad() {
-            var movies = document.getElementsByClassName("movie");
-            for (let i = 0; i < movies.length; i++) {
-                console.log(movies[i])
-                movies[i].style.display = "none";
-            }
+    }
 
-            for (let i = (cnt - 1) * 4; i < (cnt - 1) * 4 + 4; i++) {
-
-                if(movies[i]===undefined) break;
-                movies[i].style.display = "flex";
-
-
-            
+    function LimitedLoad() {
+        var movies = document.getElementsByClassName("movie");
+        for (let i = 0; i < movies.length; i++) {
+            movies[i].style.display = "none";
         }
+
+        for (let i = (cnt - 1) * 4; i < (cnt - 1) * 4 + 4; i++) {
+
+            if (movies[i] === undefined) break;
+            movies[i].style.display = "flex";
+
+
+
+        }
+        document.getElementsByClassName("page_num")[0].innerHTML = "";
+        var aElement = document.createElement("a");
+        aElement.setAttribute("id", "prev");
+        aElement.innerHTML = "Prev";
+        document.getElementsByClassName("page_num")[0].append(aElement);
+        for (let i = 0; i < movies.length / 4; i++) {
+
+            var aElement = document.createElement("a");
+            aElement.setAttribute("id", i + 1);
+            aElement.innerHTML = i + 1;
+            document.getElementsByClassName("page_num")[0].append(aElement);
+        }
+        var aElement = document.createElement("a");
+        aElement.setAttribute("id", "next");
+        aElement.innerHTML = "Next";
+        document.getElementsByClassName("page_num")[0].append(aElement);
+
 
 
     }
     //za kraj samo na pomjeranje ovog da se displaju odma
     var mark = document.getElementById("vote_average");
-    mark.addEventListener("change",Update);
-    function Update (e) {
+    mark.addEventListener("change", Update);
+
+    function Update(e) {
 
         console.log(e.target.value)
-            SearchForMovie(e.target.value);
+        SearchForMovie(e.target.value);
 
     }
 
