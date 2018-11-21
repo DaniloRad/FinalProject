@@ -13,7 +13,7 @@
         .then (function (arrayOfMovies) {
             var pathToImg="http://image.tmdb.org/t/p/w185/";
             var listHTML=document.getElementsByClassName("list")[0];
-            for (let i=0;i<4;i++) {
+            for (let i=0;i<arrayOfMovies.length;i++) {
                     var divImg=document.createElement("div");
                     divImg.setAttribute("class","divImg");
                     var img=document.createElement("img");
@@ -48,8 +48,21 @@
             }
 
         })
+        .then (function () {
+
+
+            var movies=document.getElementsByClassName("movie");
+
+                for (let i=4;i<20;i++) {
+    
+                    movies[i].style.display="none";
+
+        }
+        
 
     }
+        )
+}
     function MovieGenre(array) {
 
         var genreName=[];
@@ -125,4 +138,59 @@
         return genreName;
 
     }
+
+
+    //prikazani su svi filmovi 
+    //sada display none ostale samo prvih 4 display flex kad klikne na ovaj dolje
+    document.getElementsByClassName("page_num")[0].addEventListener("click",Load4Movies);
+    var cnt=1;
+    function Load4Movies (e) {
+        var movies=document.getElementsByClassName("movie");
+
+        if(e.target.getAttribute("id").length===1) {
+            
+            LimitedLoad();
+
+        }
+        else if(e.target.getAttribute("id")==="next") {
+            if(cnt===movies.length/4) {
+                alert("Nema vise stranica")
+            }
+            
+            else {
+                cnt++;
+            
+            LimitedLoad(); 
+            }
+           
+
+        }
+        else if (e.target.getAttribute("id")==="prev") {
+            if(cnt===1) {
+                alert("Nema vise stranica")
+            }
+            
+            else {
+                cnt--;
+            
+            LimitedLoad(); 
+            }
+        }
+        function LimitedLoad() {
+            var movies=document.getElementsByClassName("movie");
+            for (let i=0;i<movies.length;i++) {
+                movies[i].style.display="none";
+            }         
+
+            for(let i=(cnt-1)*4;i<(cnt-1)*4+4;i++) {
+
+                movies[i].style.display="flex";
+
+                
+            }
+        }
+
+
+    } 
+   
 })();
