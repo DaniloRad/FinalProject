@@ -1,136 +1,235 @@
 (function () {
 
+    var mainArray;
     LoadMovies();
+
     function LoadMovies() {
 
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=9c53b0110d5f6cbf16a45d461096b221&page=1")
-        .then (function (response) {
-            return response.json();
-        })
-        .then (function (MyJson) {
-           return MyJson.results;
-    })
-        .then (function (arrayOfMovies) {
-            var pathToImg="http://image.tmdb.org/t/p/w185/";
-            var listHTML=document.getElementsByClassName("list")[0];
-            for (let i=0;i<arrayOfMovies.length;i++) {
-                    var divImg=document.createElement("div");
-                    divImg.setAttribute("class","divImg");
-                    var img=document.createElement("img");
-                    img.setAttribute("src",pathToImg+arrayOfMovies[i].poster_path);
-                    var p1=document.createElement("p");
-                    var p2=document.createElement("p");
-                    var p3=document.createElement("p");
-                    var p4=document.createElement("p");
-                    var movieColumn2=document.createElement("div");
-                    movieColumn2.setAttribute("class","aboutMovies");
-                    p1.innerHTML=arrayOfMovies[i].title;
-                    p2.innerHTML=arrayOfMovies[i].vote_average;
-                    p3.innerHTML=arrayOfMovies[i].release_date;
-                   var arrayOfGenre= MovieGenre(arrayOfMovies[i].genre_ids);
-                   
-                   var p4_4=arrayOfGenre[0];
-                    for (let i=1;i<arrayOfGenre.length;i++) {
-                        p4_4=p4_4+","+arrayOfGenre[i];
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (MyJson) {
+                return MyJson.results;
+            })
+            .then(function (arrayOfMovies) {
+                var pathToImg = "http://image.tmdb.org/t/p/w185/";
+                var listHTML = document.getElementsByClassName("list")[0];
+                mainArray = arrayOfMovies;
+                for (let i = 0; i < arrayOfMovies.length; i++) {
+
+
+
+                    var divImg = document.createElement("div");
+                    divImg.setAttribute("class", "divImg");
+                    var img = document.createElement("img");
+                    img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
+                    var p1 = document.createElement("p");
+                    var p2 = document.createElement("p");
+                    var p3 = document.createElement("p");
+                    var p4 = document.createElement("p");
+                    var movieColumn2 = document.createElement("div");
+                    movieColumn2.setAttribute("class", "aboutMovies");
+                    p1.innerHTML = arrayOfMovies[i].title;
+                    p2.innerHTML = arrayOfMovies[i].vote_average;
+                    p3.innerHTML = arrayOfMovies[i].release_date;
+                    var arrayOfGenre = MovieGenre(arrayOfMovies[i].genre_ids);
+
+                    var p4_4 = arrayOfGenre[0];
+                    for (let i = 1; i < arrayOfGenre.length; i++) {
+                        p4_4 = p4_4 + "," + arrayOfGenre[i];
                     }
-                    p4.innerHTML=p4_4;
+                    p4.innerHTML = p4_4;
                     divImg.append(img);
                     movieColumn2.append(p1);
                     movieColumn2.append(p2);
 
                     movieColumn2.append(p3);
                     movieColumn2.append(p4);
-                    var div =document.createElement("div");
-                    div.setAttribute("class","movie");
+                    var div = document.createElement("div");
+                    div.setAttribute("class", "movie");
                     div.append(divImg);
                     div.append(movieColumn2);
                     listHTML.append(div);
-            }
 
-        })
-        .then (function () {
+                }
 
 
-            var movies=document.getElementsByClassName("movie");
 
-                for (let i=4;i<20;i++) {
-    
-                    movies[i].style.display="none";
+            })
+            .then(function () {
 
-        }
+
+                var movies = document.getElementsByClassName("movie");
+
+                for (let i = 4; i < 20; i++) {
+
+                    movies[i].style.display = "none";
+
+                }
+
+
+            })
+    }
+
+    var search_button = document.getElementById("search_button");
+    var mark = document.getElementById("vote_average").value;
+
+    search_button.addEventListener("click", (function() {
+        SearchForMovie(mark.value)
+    } ) );
+
+    function SearchForMovie(mark) {
+
+        var filter = document.querySelector('input[name="filters"]:checked').getAttribute("id");
+        var search_input = document.getElementById("search_input").value;
+        var pathToImg = "http://image.tmdb.org/t/p/w185/";
+        var listHTML = document.getElementsByClassName("list")[0];
+
+        document.getElementsByClassName("list")[0].innerHTML="";
+            
         
+        for (let i = 0; i < mainArray.length; i++) {
+
+            var displaying = false;
+
+            if (filter === "title") {
+
+                if (mainArray[i].title.toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
+
+                    displaying = true;
+
+                }
+            } else if (filter === "release_date") {
+
+                if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
+
+                    displaying = true;
+
+                }
+
+            } else if (filter === "genre_ids") {
+
+            var obj=MovieGenre(mainArray[i].genre_ids);
+                for (let i=0;i<obj.length;i++) {
+
+                   
+                    if(obj[i].indexOf(search_input)>-1) {
+
+                        displaying=true;
+                       
+
+                    } 
+
+                }
+
+            }
+            if(mark>mainArray[i].vote_average) {
+                displaying=false;
+            }
+            if (displaying) {
+
+                var divImg = document.createElement("div");
+                divImg.setAttribute("class", "divImg");
+                var img = document.createElement("img");
+                img.setAttribute("src", pathToImg + mainArray[i].poster_path);
+                var p1 = document.createElement("p");
+                var p2 = document.createElement("p");
+                var p3 = document.createElement("p");
+                var p4 = document.createElement("p");
+                var movieColumn2 = document.createElement("div");
+                movieColumn2.setAttribute("class", "aboutMovies");
+                p1.innerHTML = mainArray[i].title;
+                p2.innerHTML = mainArray[i].vote_average;
+                p3.innerHTML = mainArray[i].release_date;
+                var arrayOfGenre = MovieGenre(mainArray[i].genre_ids);
+
+                var p4_4 = arrayOfGenre[0];
+                for (let i = 1; i < arrayOfGenre.length; i++) {
+                    p4_4 = p4_4 + "," + arrayOfGenre[i];
+                }
+                p4.innerHTML = p4_4;
+                divImg.append(img);
+                movieColumn2.append(p1);
+                movieColumn2.append(p2);
+
+                movieColumn2.append(p3);
+                movieColumn2.append(p4);
+                var div = document.createElement("div");
+                div.setAttribute("class", "movie");
+                div.append(divImg);
+                div.append(movieColumn2);
+                listHTML.append(div);
+
+            }
+        }
+        LimitedLoad();
 
     }
-        )
-}
+
     function MovieGenre(array) {
 
         var genreName=[];
-        for (let i=0;i<array.length;i++) {
+        for (let i = 0; i < array.length; i++) {
 
-            if(array[i]===28) {
-                genreName[i]="Action";
-            }
-            else if (array[i]===16) {
-                genreName[i]="Animated";
+            if (array[i] === 28) {
+                genreName[i] =  "action";
+            } else if (array[i] === 16) {
+                genreName[i]= "animated";
 
-            }
-            else if (array[i]===16) {
-                genreName[i]="Animated";
+            } else if (array[i] === 16) {
+                genreName[i]= "animated";
 
-            } else if (array[i]===99) {
-                genreName[i]="Documentary";
+            } else if (array[i] === 99) {
+                genreName[i]= "documentary";
 
-            } else if (array[i]===18) {
-                genreName[i]="Drama";
+            } else if (array[i] === 18) {
+                genreName[i]= "drama";
 
-            } else if (array[i]===10751) {
-                genreName[i]="Family";
+            } else if (array[i] === 10751) {
+                genreName[i]= "family";
 
-            } else if (array[i]===14) {
-                genreName[i]="Fantasy";
+            } else if (array[i] === 14) {
+                genreName[i]= "fantasy";
 
-            } else if (array[i]===36) {
-                genreName[i]="History";
+            } else if (array[i] === 36) {
+                genreName[i]= "fistory";
 
-            } else if (array[i]===35) {
-                genreName[i]="Comedy";
+            } else if (array[i] === 35) {
+                genreName[i]= "comedy";
 
-            } else if (array[i]===10752) {
-                genreName[i]="War";
+            } else if (array[i] === 10752) {
+                genreName[i]= "war";
 
-            } else if (array[i]===80) {
-                genreName[i]="Crime";
+            } else if (array[i] === 80) {
+                genreName[i]= "crime";
 
-            } else if (array[i]===10402) {
-                genreName[i]="Music";
+            } else if (array[i] === 10402) {
+                genreName[i]= "music";
 
-            } else if (array[i]===9648) {
-                genreName[i]="Mystery";
+            } else if (array[i] === 9648) {
+                genreName[i]= "mystery";
 
-            } else if (array[i]===10749) {
-                genreName[i]="Romance";
+            } else if (array[i] === 10749) {
+                genreName[i]= "romance";
 
-            }
-            else if (array[i]===878) {
-                genreName[i]="Sci-fi";
+            } else if (array[i] === 878) {
+                genreName[i]= "sci-fi";
 
-            }
-            else if (array[i]===27) {
-                genreName[i]="Horror";
+            } else if (array[i] === 27) {
+                genreName[i]= "horror";
 
-            } else if (array[i]===10770) {
-                genreName[i]="TV movie";
+            } else if (array[i] === 10770) {
+                genreName[i]= "tv movie";
 
-            } else if (array[i]===53) {
-                genreName[i]="Thriller";
+            } else if (array[i] === 53) {
+                genreName[i]= "thriller";
 
-            }
-            else if (array[i]===37) {
-                genreName[i]="Western";
+            } else if (array[i] === 37) {
+                genreName[i]= "western";
 
-            } else if (array[i]===12) {
-                genreName[i]="Pleasure";
+            } else if (array[i] === 12) {
+                genreName[i]= "pleasure";
 
             }
 
@@ -142,55 +241,63 @@
 
     //prikazani su svi filmovi 
     //sada display none ostale samo prvih 4 display flex kad klikne na ovaj dolje
-    document.getElementsByClassName("page_num")[0].addEventListener("click",Load4Movies);
-    var cnt=1;
-    function Load4Movies (e) {
-        var movies=document.getElementsByClassName("movie");
+    document.getElementsByClassName("page_num")[0].addEventListener("click", Load4Movies);
+    var cnt = 1;
 
-        if(e.target.getAttribute("id").length===1) {
-            
+    function Load4Movies(e) {
+        var movies = document.getElementsByClassName("movie");
+
+        if (e.target.getAttribute("id").length === 1) {
+            cnt = parseInt(e.target.getAttribute("id"));
             LimitedLoad();
 
-        }
-        else if(e.target.getAttribute("id")==="next") {
-            if(cnt===movies.length/4) {
+        } else if (e.target.getAttribute("id") === "next") {
+            if (cnt === movies.length / 4) {
                 alert("Nema vise stranica")
-            }
-            
-            else {
+            } else {
                 cnt++;
-            
-            LimitedLoad(); 
-            }
-           
 
-        }
-        else if (e.target.getAttribute("id")==="prev") {
-            if(cnt===1) {
+                LimitedLoad();
+            }
+
+
+        } else if (e.target.getAttribute("id") === "prev") {
+            if (cnt === 1) {
                 alert("Nema vise stranica")
-            }
-            
-            else {
+            } else {
                 cnt--;
-            
-            LimitedLoad(); 
+
+                LimitedLoad();
             }
         }
+}
         function LimitedLoad() {
-            var movies=document.getElementsByClassName("movie");
-            for (let i=0;i<movies.length;i++) {
-                movies[i].style.display="none";
-            }         
-
-            for(let i=(cnt-1)*4;i<(cnt-1)*4+4;i++) {
-
-                movies[i].style.display="flex";
-
-                
+            var movies = document.getElementsByClassName("movie");
+            for (let i = 0; i < movies.length; i++) {
+                console.log(movies[i])
+                movies[i].style.display = "none";
             }
+
+            for (let i = (cnt - 1) * 4; i < (cnt - 1) * 4 + 4; i++) {
+
+                if(movies[i]===undefined) break;
+                movies[i].style.display = "flex";
+
+
+            
         }
 
 
-    } 
-   
+    }
+    //za kraj samo na pomjeranje ovog da se displaju odma
+    var mark = document.getElementById("vote_average");
+    mark.addEventListener("change",Update);
+    function Update (e) {
+
+        console.log(e.target.value)
+            SearchForMovie(e.target.value);
+
+    }
+
+
 })();
