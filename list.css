@@ -1,44 +1,53 @@
-*{
+* {
     box-sizing: border-box;
 }
 
-body{
+body {
     margin: 0;
     padding: 0;
 }
 
-.header, .footer{
+.header,
+.footer {
     background-color: rgb(30, 27, 49);
     color: rgb(250, 250, 255);
 }
 
-.header{
+.header {
     height: auto;
 }
 
-.logo{
+.logo {
     display: inline-block;
     width: 30%;
     vertical-align: middle;
     text-align: center;
 }
+
 .logo img {
     width: 40%;
     height: 40%;
 }
 
-ul{
+ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-li{
+li {
     display: inline;
     padding: 3%;
 }
 
-.navigationBar{
+.navigationBar a {
+
+    text-decoration: none;
+    color: white;
+
+}
+
+.navigationBar {
     display: inline-block;
     position: relative;
     right: 0;
@@ -46,51 +55,83 @@ li{
     width: 65%;
     font-size: 2vw;
 }
-.navigationBar a {
-    
-}
+
+.navigationBar a {}
+
 .container {
     background-color: blanchedalmond;
     display: flex;
     width: 100%;
-    height: 200px;
     flex-direction: column;
 }
 
 
 
 .search {
+    flex: 1;
     display: inherit;
     padding: 2%;
     justify-content: center;
 
 }
+
 .filter {
+    flex: 1;
     display: flex;
-    padding: 2%;  
+    padding: 2%;
     justify-content: center;
 
 }
+
 .filter label {
     padding-right: 2%;
 }
+
+.list {
+    width: 100%;
+    background-color: aquamarine;
+    padding-left: 20%;
+    padding-right: 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list img {
+    width: 100%;
+}
+
+.movie {
+    display: flex;
+}
+
+.divImg {
+    flex: 1;
+}
+
+.aboutMovies {
+    padding-left: 2%;
+    flex: 4;
+}
+
 .page_num {
     display: flex;
     justify-content: center;
 }
-.page_num a{
-    padding-right:1%;
-    
+
+.page_num a {
+    padding-right: 1%;
+
 }
+
 .siteMap li {
 
-  padding-bottom: 0;
-  padding-top: 0;  
+    padding-bottom: 0;
+    padding-top: 0;
 
 }
 
-.footer{
-    position: absolute;
+.footer {
+    position: none;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -98,8 +139,8 @@ li{
     font-size: 1.5vw;
 }
 
-@media only screen and (max-width: 980px){
-    .navigationBar{
+@media only screen and (max-width: 980px) {
+    .navigationBar {
         display: block;
         width: 100%;
         font-size: 3.5vw;
@@ -108,14 +149,14 @@ li{
     }
 }
 
-@media only screen and (max-width: 450px){
-    .navigation li{
+@media only screen and (max-width: 450px) {
+    .navigation li {
         display: block;
         width: 70%;
         font-size: 4.5vw;
     }
 
-    .footer{
+    .footer {
         font-size: 3.5vw;
     }
 }
