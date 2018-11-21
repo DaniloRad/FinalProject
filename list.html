@@ -11,8 +11,8 @@
             </div>
             <div class="navigationBar">
                 <ul class="navigation">
-                    <li><a>Home</a></li>
-                    <li><a>List</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="list.html">List</a></li>
                     <li><a>Custom Page</a></li>
                     <li><a>About us</a></li>
                 </ul>
@@ -28,16 +28,19 @@
                 </div>
 
                 <div class="filter">
-                    <input type="radio" name="filters" id="name" >
+                    <input type="radio" name="filters" id="name" checked >
                     <label for="name">Name</label>
-                    <input type="radio" name="filters" id="filter1" >
-                    <label for="filter1">Filter1</label>
-                    <input type="radio" name="filter2" id="filter2" >
-                    <label for="filter2">Filter2</label>
-                    <input id="###" type="range" min="1" max="10" value="1">
+                    <input type="radio" name="filters" id="year" >
+                    <label for="filter1">Year</label>
+                    <input type="radio" name="filter" id="overview" >
+                    <label for="filter2">Overview</label>
+                    <input id="vote" type="range" min="1" max="10" value="1">
 
             </div>
-               <div class="list"></div>
+               <div class="list">
+
+
+               </div>
                <div class="page_num">
                 <a id="prev">Prev</a>
                 <a> 1</a>
@@ -53,5 +56,7 @@
                 <li><a>About us</a></li>
             </ul>
         </div>
+
+        <script src="list.js"></script>
     </body>
 </html>
