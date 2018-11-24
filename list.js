@@ -21,7 +21,7 @@
 
 
                     var divImg = document.createElement("div");
-                    divImg.setAttribute("class", "divImg");
+                    divImg.setAttribute("class", "divImgList");
                     var img = document.createElement("img");
                     img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
                     var p1 = document.createElement("p");
@@ -29,17 +29,17 @@
                     var p3 = document.createElement("p");
                     var p4 = document.createElement("p");
                     var movieColumn2 = document.createElement("div");
-                    movieColumn2.setAttribute("class", "aboutMovies");
-                    p1.innerHTML = arrayOfMovies[i].title;
-                    p2.innerHTML = arrayOfMovies[i].vote_average;
-                    p3.innerHTML = arrayOfMovies[i].release_date;
+                    movieColumn2.setAttribute("class", "aboutMoviesList");
+                    p1.innerHTML = "Name: "+arrayOfMovies[i].title;
+                    p2.innerHTML = "Vote: "+arrayOfMovies[i].vote_average;
+                    p3.innerHTML = "Date: "+arrayOfMovies[i].release_date;
                     var arrayOfGenre = MovieGenre(arrayOfMovies[i].genre_ids);
 
                     var p4_4 = arrayOfGenre[0];
                     for (let i = 1; i < arrayOfGenre.length; i++) {
                         p4_4 = p4_4 + "," + arrayOfGenre[i];
                     }
-                    p4.innerHTML = p4_4;
+                    p4.innerHTML ="Genre: "+p4_4;
                     divImg.append(img);
                     movieColumn2.append(p1);
                     movieColumn2.append(p2);
@@ -47,7 +47,7 @@
                     movieColumn2.append(p3);
                     movieColumn2.append(p4);
                     var div = document.createElement("div");
-                    div.setAttribute("class", "movie");
+                    div.setAttribute("class", "movieList");
                     div.append(divImg);
                     div.append(movieColumn2);
                     listHTML.append(div);
@@ -60,14 +60,14 @@
             .then(function () {
 
 
-                var movies = document.getElementsByClassName("movie");
+                var movies = document.getElementsByClassName("movieList");
 
-                for (let i = 4; i < movies.length; i++) {
+                for (let i = 5; i < movies.length; i++) {
 
                     movies[i].style.display = "none";
 
                 }
-                for (let i = 0; i < movies.length / 4; i++) {
+                for (let i = 0; i < movies.length / 5; i++) {
 
                     var aElement = document.createElement("a");
                     aElement.setAttribute("id", i + 1);
@@ -91,7 +91,7 @@
     }));
 
     function SearchForMovie(mark) {
-
+        cnt=1;
         var filter = document.querySelector('input[name="filters"]:checked').getAttribute("id");
         var search_input = document.getElementById("search_input").value;
         var pathToImg = "http://image.tmdb.org/t/p/w185/";
@@ -124,11 +124,12 @@
                 var obj = MovieGenre(mainArray[i].genre_ids);
                 for (let i = 0; i < obj.length; i++) {
 
+                    console.log(obj[i].toLocaleLowerCase())
 
-                    if (obj[i].indexOf(search_input) > -1) {
+                    if (obj[i].toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
 
                         displaying = true;
-
+                        break;
 
                     }
 
@@ -141,7 +142,7 @@
             if (displaying) {
 
                 var divImg = document.createElement("div");
-                divImg.setAttribute("class", "divImg");
+                divImg.setAttribute("class", "divImgList");
                 var img = document.createElement("img");
                 img.setAttribute("src", pathToImg + mainArray[i].poster_path);
                 var p1 = document.createElement("p");
@@ -149,17 +150,17 @@
                 var p3 = document.createElement("p");
                 var p4 = document.createElement("p");
                 var movieColumn2 = document.createElement("div");
-                movieColumn2.setAttribute("class", "aboutMovies");
-                p1.innerHTML = mainArray[i].title;
-                p2.innerHTML = mainArray[i].vote_average;
-                p3.innerHTML = mainArray[i].release_date;
+                movieColumn2.setAttribute("class", "aboutMoviesList");
+                p1.innerHTML = "Name: "+ mainArray[i].title;
+                p2.innerHTML = "Vote: "+mainArray[i].vote_average;
+                p3.innerHTML = "Date: "+mainArray[i].release_date;
                 var arrayOfGenre = MovieGenre(mainArray[i].genre_ids);
 
                 var p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
-                p4.innerHTML = p4_4;
+                p4.innerHTML ="Genre: "+ p4_4;
                 divImg.append(img);
                 movieColumn2.append(p1);
                 movieColumn2.append(p2);
@@ -167,7 +168,7 @@
                 movieColumn2.append(p3);
                 movieColumn2.append(p4);
                 var div = document.createElement("div");
-                div.setAttribute("class", "movie");
+                div.setAttribute("class", "movieList animated flipInX ");
                 div.append(divImg);
                 div.append(movieColumn2);
                 listHTML.append(div);
@@ -257,15 +258,14 @@
     var cnt = 1;
 
     function Load4Movies(e) {
-        var movies = document.getElementsByClassName("movie");
+        var movies = document.getElementsByClassName("movieList");
 
         if (e.target.getAttribute("id").length === 1) {
             cnt = parseInt(e.target.getAttribute("id"));
             LimitedLoad();
 
         } else if (e.target.getAttribute("id") === "next") {
-            console.log(cnt)
-            if (cnt >= movies.length / 4) {
+            if (cnt >= movies.length / 5) {
                 alert("Nema vise stranica")
             } else {
                 cnt++;
@@ -286,12 +286,12 @@
     }
 
     function LimitedLoad() {
-        var movies = document.getElementsByClassName("movie");
+        var movies = document.getElementsByClassName("movieList");
         for (let i = 0; i < movies.length; i++) {
             movies[i].style.display = "none";
         }
 
-        for (let i = (cnt - 1) * 4; i < (cnt - 1) * 4 + 4; i++) {
+        for (let i = (cnt - 1) * 5; i < (cnt - 1) * 5 + 5; i++) {
 
             if (movies[i] === undefined) break;
             movies[i].style.display = "flex";
@@ -304,7 +304,7 @@
         aElement.setAttribute("id", "prev");
         aElement.innerHTML = "Prev";
         document.getElementsByClassName("page_num")[0].append(aElement);
-        for (let i = 0; i < movies.length / 4; i++) {
+        for (let i = 0; i < movies.length / 5; i++) {
 
             var aElement = document.createElement("a");
             aElement.setAttribute("id", i + 1);
@@ -325,10 +325,27 @@
 
     function Update(e) {
 
-        console.log(e.target.value)
         SearchForMovie(e.target.value);
+        document.getElementById("vote_average_value").innerHTML=e.target.value;
 
     }
 
+    (function () {
+
+       var clickToDisplay= document.getElementById("click_display_filters");
+       clickToDisplay.addEventListener("click",function () {
+
+        if(clickToDisplay.innerHTML.indexOf("Display")>-1) {
+             document.getElementsByClassName("filter")[0].style.display="flex";
+        clickToDisplay.innerHTML="Hide Filters 	&uarr;";
+        }
+       else {
+        document.getElementsByClassName("filter")[0].style.display="none";
+        clickToDisplay.innerHTML="Display Filters 	&darr;";
+       }
+
+       })
+
+    }) ();
 
 })();
