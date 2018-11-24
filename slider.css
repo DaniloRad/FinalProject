@@ -7,51 +7,9 @@ body{
     padding: 0;
 }
 
-.header, .footer{
-    background-color: rgb(30, 27, 49);
-    color: rgb(250, 250, 255);
-}
-
-.header{
-    height: auto;
-}
-
-.logo{
-    display: inline-block;
-    width: 30%;
-    vertical-align: middle;
-}
-
-ul{
-    list-style-type: none;
-}
-
-li{
-    display: inline;
-    padding: 3%;
-}
-
-.navigationBar{
-    display: inline-block;
-    position: relative;
-    right: 0;
-    bottom: 0;
-    width: 65%;
-    font-size: 2.5vw;
-}
-
-.footer{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-size: 2vw;
-}
-
 .slider{
-    width: 65%;
-    height: 35vh;
+    width: 100%;
+    height: 60vh;
     position: relative;
 }
 
@@ -60,23 +18,25 @@ li{
     width: 100%;
     height: 100%;
     display: none;
+    margin: auto;
 }
 
 .element{
     height: 100%;
     width: 33.33%;
     display: none;
+    background-size: cover;
 }
 
 .readMore{
+    /*position: relative;
+    bottom: 0;
+    right: 0;*/
     width: 40%;
     height: 20%;
     background-color: rgb(30, 27, 49);
     color: rgb(250, 250, 255);
     text-align: center;
-    position: relative;
-    right: 0;
-    bottom: 0;
 }
 
 #prev, #next{
@@ -91,6 +51,7 @@ li{
     position: absolute;
     top: 50%;
     color: rgb(30, 27, 49);
+    cursor: pointer;
   }
 
   #prev {  
@@ -101,28 +62,8 @@ li{
     right: 0;
   }
 
-@media only screen and (max-width: 980px){
-    .navigationBar{
-        display: block;
-        width: 100%;
-        font-size: 3.5vw;
-        padding: 2%;
-        text-align: center;
-    }
-}
+  .image{
+      width: 100%; 
+      height: 100%;
+  }
 
-@media only screen and (max-width: 450px){
-    .navigation li{
-        display: block;
-        width: 70%;
-        font-size: 4.5vw;
-    }
-
-    .footer{
-        font-size: 3.5vw;
-    }
-
-    /*.element{
-        width: 100%;
-    }*/
-}
