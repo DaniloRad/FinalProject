@@ -1,6 +1,4 @@
 
-
-
 .container{
     background-color: blanchedalmond;
     display: flex;
@@ -9,7 +7,7 @@
 }
 .column_left {
 
-background-color: aqua;
+background-color: rgb(220,237,255);
 flex: 4;
 }
 .column_right{
@@ -64,7 +62,7 @@ display: flex;
 }
 .modal_window {
 
-    background-color: aquamarine;
+    background-color: rgb(220,237,255);
     position: fixed;
     top: 5vh;
     left: 5vw;

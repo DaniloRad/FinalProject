@@ -2,6 +2,7 @@
 
     let currentRow = 1;
     let ifInSlider;
+    var sliderHTML = document.getElementsByClassName("slider")[0];
     document.getElementsByTagName("body")[0].onkeydown = checkKey;
     function loadMovies(){
         const url = "https://api.themoviedb.org/3/trending/all/day?api_key=52fc43195daf9730aa9bd854898d0c7a";
@@ -16,7 +17,6 @@
             return array.slice(0,9);
         })    
         .then(function(finalArray){
-            console.log(finalArray);
             let currentElementOfFinalArray = 0;
             for(let i=0;i<3;i++){
                 let row1 = createRow();
@@ -27,32 +27,11 @@
                     currentElementOfFinalArray++;
                 }
             }
-
-            var a=document.createElement("a");
-            a.setAttribute("id","next");
-            a.setAttribute("class","fa fa-angle-double-right");
-            document.getElementsByClassName("slider")[0].appendChild(a);
             showRow(currentRow);
             setInterval(function(){
                 showRow(currentRow);
                 increaseRow();
             },3000);
-        }
-        
-        
-        )
-        .then ( function () {
-
-             document.getElementById("prev").addEventListener("click",function(){
-        decreaseRow();
-        showRow(currentRow);
-    })
-
-    document.getElementById("next").addEventListener("click",function(){
-        increaseRow();
-        showRow(currentRow);
-    })
-
         })
     }
 
@@ -62,33 +41,47 @@
         return row;
     }
 
-   
+    document.getElementById("prev").addEventListener("click",function(){
+        decreaseRow();
+        showRow(currentRow);
+    })
+
+    document.getElementById("next").addEventListener("click",function(){
+        increaseRow();
+        showRow(currentRow);
+    })
 
     function createElem(elemOfArray){
         //elemOfArray - one element of finalArray
         let pathToImg = "http://image.tmdb.org/t/p/w185/";
         let elem = document.createElement("div");
         elem.setAttribute("class","element");
-        elem.style.backgroundImage = "url("+pathToImg + elemOfArray.poster_path+")";
+        let img = document.createElement("img");
+        img.setAttribute("src",pathToImg + elemOfArray.poster_path);
+        img.setAttribute("class","img");
+        elem.appendChild(img);
         elem.style.display = "inline-block";
-        addButton(elem);
+        addButton(elem,elemOfArray);
         return elem;
     }
 
-    function addButton(parent){
+    function addButton(parent,elemOfArray){
         //add read more button
         let btn = document.createElement("button");
         btn.setAttribute("class","readMore");
         let text = document.createTextNode("Read More");
         btn.appendChild(text);
         parent.appendChild(btn);
+        btn.addEventListener("click", function(){
+            openModalWindow(elemOfArray);
+        });
     }
 
     function showRow(i){
         let arrayOfRows = document.getElementsByClassName("row");
         for(let j=1;j<=3;j++){
             if(j===i){
-                arrayOfRows[i].style.display = "flex";
+                arrayOfRows[i].style.display = "block";
             }
             else{
                 arrayOfRows[j].style.display = "none";
@@ -138,6 +131,98 @@
                 showRow(currentRow);
             }
         }
+    }
+
+    function openModalWindow(elemOfArray){
+        var modalWindow=document.getElementsByClassName("modal_window")[0];
+        var modalWindowImg=document.getElementsByClassName("modal_window_img")[0];
+        var modalWindowAbout=document.getElementsByClassName("modal_windows_about")[0];
+        document.getElementsByClassName("noneClick")[0].style.pointerEvents="none";
+        modalWindow.style.display="flex";
+        modalWindowImg.innerHTML=returnImage(elemOfArray);
+        modalWindowAbout.innerHTML=returnDescription(elemOfArray).innerHTML;
+    }
+
+    function returnImage(elemOfArray){
+        //creating inner.html for modal window
+        let src = "http://image.tmdb.org/t/p/w185/" + elemOfArray.poster_path;
+        let i = "<img src = '" + src + "'>";
+        return i;
+    }
+
+    function returnDescription(elemOfArray){
+        //creating inner.html for modal window
+        var movies = document.createElement("div");
+        movies.setAttribute("class", "aboutMovies");
+        var p1 = document.createElement("p");
+        var p2 = document.createElement("p");
+        var p3 = document.createElement("p");
+        var p4 = document.createElement("p");
+        var p5 = document.createElement("p")
+        p1.innerHTML = "Name: "+elemOfArray.title;
+        p2.innerHTML = "Vote: "+elemOfArray.vote_average;
+        p3.innerHTML = "Date: "+elemOfArray.release_date;
+        p5.innerHTML="Overview: "+elemOfArray.overview;
+        var arrayOfGenre = MovieGenre(elemOfArray.genre_ids);
+        var p4_4 = arrayOfGenre[0];
+        for (let i = 1; i < arrayOfGenre.length; i++) {
+            p4_4 = p4_4 + ", " + arrayOfGenre[i];
+        }
+        p4.innerHTML = "Genre: "+p4_4;
+        movies.append(p1);
+        movies.append(p2);
+        movies.append(p3);
+        movies.append(p4);
+        movies.append(p5);
+        return movies;
+    }
+
+    function MovieGenre(array) {
+        var genreName = [];
+        for (let i = 0; i < array.length; i++) {
+            if (array[i] === 28) {
+                genreName[i] = "action";
+            } else if (array[i] === 16) {
+                genreName[i] = "animated";
+            } else if (array[i] === 16) {
+                genreName[i] = "animated";
+            } else if (array[i] === 99) {
+                genreName[i] = "documentary";
+            } else if (array[i] === 18) {
+                genreName[i] = "drama";
+            } else if (array[i] === 10751) {
+                genreName[i] = "family";
+            } else if (array[i] === 14) {
+                genreName[i] = "fantasy";
+            } else if (array[i] === 36) {
+                genreName[i] = "fistory";
+            } else if (array[i] === 35) {
+                genreName[i] = "comedy";
+            } else if (array[i] === 10752) {
+                genreName[i] = "war";
+            } else if (array[i] === 80) {
+                genreName[i] = "crime";
+            } else if (array[i] === 10402) {
+                genreName[i] = "music";
+            } else if (array[i] === 9648) {
+                genreName[i] = "mystery";
+            } else if (array[i] === 10749) {
+                genreName[i] = "romance";
+            } else if (array[i] === 878) {
+                genreName[i] = "sci-fi";
+            } else if (array[i] === 27) {
+                genreName[i] = "horror";
+            } else if (array[i] === 10770) {
+                genreName[i] = "tv movie";
+            } else if (array[i] === 53) {
+                genreName[i] = "thriller";
+            } else if (array[i] === 37) {
+                genreName[i] = "western";
+            } else if (array[i] === 12) {
+                genreName[i] = "pleasure";
+            }
+        }
+        return genreName;
     }
 
     loadMovies();
