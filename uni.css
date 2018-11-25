@@ -77,7 +77,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', end
     position: relative;
     right: 0;
     bottom: 0;
-    width: 65%;
+    width: 100%;
     font-size: 2vw;
 
 }
@@ -97,7 +97,7 @@ list-style-type: none;
 
 }
 .siteMap a {
-font-size:1.5rem;
+font-size:1.2rem;
     text-decoration: none;
     color: white;
 
