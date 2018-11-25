@@ -186,63 +186,63 @@
         for (let i = 0; i < array.length; i++) {
 
             if (array[i] === 28) {
-                genreName[i] = "action";
+                genreName[i] = "action"+" ";
             } else if (array[i] === 16) {
-                genreName[i] = "animated";
+                genreName[i] = "animated"+" ";
 
             } else if (array[i] === 16) {
-                genreName[i] = "animated";
+                genreName[i] = "animated"+" ";
 
             } else if (array[i] === 99) {
-                genreName[i] = "documentary";
+                genreName[i] = "documentary"+" ";
 
             } else if (array[i] === 18) {
-                genreName[i] = "drama";
+                genreName[i] = "drama"+" ";
 
             } else if (array[i] === 10751) {
-                genreName[i] = "family";
+                genreName[i] = "family"+" ";
 
             } else if (array[i] === 14) {
-                genreName[i] = "fantasy";
+                genreName[i] = "fantasy"+" ";
 
             } else if (array[i] === 36) {
-                genreName[i] = "fistory";
+                genreName[i] = "fistory"+" ";
 
             } else if (array[i] === 35) {
-                genreName[i] = "comedy";
+                genreName[i] = "comedy"+" ";
 
             } else if (array[i] === 10752) {
-                genreName[i] = "war";
+                genreName[i] = "war"+" ";
 
             } else if (array[i] === 80) {
-                genreName[i] = "crime";
+                genreName[i] = "crime"+" ";
 
             } else if (array[i] === 10402) {
-                genreName[i] = "music";
+                genreName[i] = "music"+" ";
 
             } else if (array[i] === 9648) {
-                genreName[i] = "mystery";
+                genreName[i] = "mystery"+" ";
 
             } else if (array[i] === 10749) {
-                genreName[i] = "romance";
+                genreName[i] = "romance"+" ";
 
             } else if (array[i] === 878) {
-                genreName[i] = "sci-fi";
+                genreName[i] = "sci-fi"+" ";
 
             } else if (array[i] === 27) {
-                genreName[i] = "horror";
+                genreName[i] = "horror"+" ";
 
             } else if (array[i] === 10770) {
-                genreName[i] = "tv movie";
+                genreName[i] = "tv movie"+" ";
 
             } else if (array[i] === 53) {
-                genreName[i] = "thriller";
+                genreName[i] = "thriller"+" ";
 
             } else if (array[i] === 37) {
-                genreName[i] = "western";
+                genreName[i] = "western"+" ";
 
             } else if (array[i] === 12) {
-                genreName[i] = "pleasure";
+                genreName[i] = "pleasure"+" ";
 
             }
 
