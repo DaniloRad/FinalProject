@@ -55,7 +55,7 @@
         //elemOfArray - one element of finalArray
         let pathToImg = "http://image.tmdb.org/t/p/w185/";
         let elem = document.createElement("div");
-        elem.setAttribute("class","element");
+        elem.setAttribute("class","element animated jackInTheBox");
         let img = document.createElement("img");
         img.setAttribute("src",pathToImg + elemOfArray.poster_path);
         img.setAttribute("class","img");
