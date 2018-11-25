@@ -1,7 +1,10 @@
 
-
+body {
+    color: white;
+}
 .container_list {
-    background-color: blanchedalmond;
+    background-image: url('test2.jpeg.jpg');
+    background-size:cover;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -89,7 +92,7 @@
 }
 .list {
     width: 100%;
-    background-color: aquamarine;
+    background-color: transparent;
     padding-left: 20%;
     padding-right: 20%;
     display: flex;
@@ -103,9 +106,15 @@
 }
 
 .movieList {
+    padding: 2%;
     display: flex;
 }
-
+.movieList:nth-child(odd) {
+    border: 2px inset grey;
+}
+.movieList:nth-child(even) {
+    border: 2px outset grey;
+}
 .divImgList {
     flex: 1;
 }
@@ -121,7 +130,28 @@
 }
 
 .page_num a {
-    padding-right: 1%;
+    padding-right: 2%;
+    color: white;
+    font-size: 1rem;
+    display: block;
+    cursor: pointer;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.page_num a:hover {
+
+    text-decoration: underline;
 
 }
+.currPage {
 
+    text-decoration: underline;
+
+}
+@media only screen and (max-width: 700px) {
+    .list {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+}
