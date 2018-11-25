@@ -1,6 +1,7 @@
 
 body {
     color: white;
+    font-family: "Courier New", Courier, monospace;
 }
 .container_list {
     background-image: url('test2.jpeg.jpg');
@@ -49,6 +50,7 @@ body {
 .filter_display>p {
     text-align: center;
     padding: 10px;
+    font-size: 1.7rem;
 }
 .filter_display p:hover {
     color: white;
@@ -67,6 +69,7 @@ body {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    border:1px solid white;
 }
 
 #vote_average:hover {
@@ -78,16 +81,17 @@ body {
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: black;
+    border:1px solid white;
     cursor: pointer;
 }
 
 #vote_average::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    border:1px solid green;
+    border:1px solid grey;
     border-radius:100%;
-    background: #4CAF50;
+    background: #black;
     cursor: pointer;
 }
 .list {
@@ -98,16 +102,22 @@ body {
     display: flex;
     flex-direction: column;
 }
+.list a{
+    font-size:1.4rem;
+}
 
 .list img {
  display:block;
  height: auto;
  width: 100%;
+ min-width: 80px;
 }
 
 .movieList {
     padding: 2%;
     display: flex;
+    word-wrap: break-word;
+
 }
 .movieList:nth-child(odd) {
     border: 2px inset grey;
@@ -152,6 +162,9 @@ body {
     .list {
         padding-left: 5%;
         padding-right: 5%;
+    }
+    body {
+        font-size: 12px;
     }
     
 }
