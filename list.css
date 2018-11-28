@@ -1,7 +1,12 @@
 
+body {
+    color: white;
+    font-family: "Courier New", Courier, monospace;
 
+}
 .container_list {
-    background-color: blanchedalmond;
+    background-image: url('test2.jpeg.jpg');
+    background-size:cover;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -46,6 +51,7 @@
 .filter_display>p {
     text-align: center;
     padding: 10px;
+    font-size: 1.7rem;
 }
 .filter_display p:hover {
     color: white;
@@ -64,6 +70,7 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    border:1px solid white;
 }
 
 #vote_average:hover {
@@ -75,37 +82,50 @@
     appearance: none;
     width: 25px;
     height: 25px;
-    background: #4CAF50;
+    background: black;
+    border:1px solid white;
     cursor: pointer;
 }
 
 #vote_average::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    border:1px solid green;
+    border:1px solid grey;
     border-radius:100%;
-    background: #4CAF50;
+    background-color: black;
     cursor: pointer;
 }
 .list {
     width: 100%;
-    background-color: aquamarine;
+    background-color: transparent;
     padding-left: 20%;
     padding-right: 20%;
     display: flex;
     flex-direction: column;
+}
+.list a{
+    font-size:1.4rem;
 }
 
 .list img {
  display:block;
  height: auto;
  width: 100%;
+ min-width: 80px;
 }
 
 .movieList {
+    padding: 2%;
     display: flex;
-}
+    word-wrap: break-word;
 
+}
+.movieList:nth-child(odd) {
+    border: 2px inset grey;
+}
+.movieList:nth-child(even) {
+    border: 2px outset grey;
+}
 .divImgList {
     flex: 1;
 }
@@ -121,7 +141,30 @@
 }
 
 .page_num a {
-    padding-right: 1%;
-
+    padding-right: 2%;
+    color: white;
+    font-size: 1rem;
+    display: block;
+    cursor: pointer;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+.page_num a:hover {
+    text-decoration: underline;
 }
 
+.currPage {
+    text-decoration: underline;
+}
+
+b{
+    font-size: 2vw;
+    color: goldenrod;
+}
+
+@media only screen and (max-width: 700px) {
+    .list {
+        padding-left: 5%;
+        padding-right: 5%;
+    } 
+}
