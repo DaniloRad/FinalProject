@@ -1,6 +1,6 @@
 (function () {
 
-    var mainArray;
+    let mainArray;
     loadMovies();
 
     function loadMovies() {
@@ -13,29 +13,29 @@
                 return MyJson.results;
             })
             .then(function (arrayOfMovies) {
-                var pathToImg = "http://image.tmdb.org/t/p/w185/";
-                var listHTML = document.getElementsByClassName("list")[0];
+                let pathToImg = "http://image.tmdb.org/t/p/w185/";
+                let listHTML = document.getElementsByClassName("list")[0];
                 mainArray = arrayOfMovies;
                 for (let i = 0; i < arrayOfMovies.length; i++) {
 
 
 
-                    var divImg = document.createElement("div");
+                    let divImg = document.createElement("div");
                     divImg.setAttribute("class", "divImgList");
-                    var img = document.createElement("img");
+                    let img = document.createElement("img");
                     img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
-                    var p1 = document.createElement("p");
-                    var p2 = document.createElement("p");
-                    var p3 = document.createElement("p");
-                    var p4 = document.createElement("p");
-                    var movieColumn2 = document.createElement("div");
+                    let p1 = document.createElement("p");
+                    let p2 = document.createElement("p");
+                    let p3 = document.createElement("p");
+                    let p4 = document.createElement("p");
+                    let movieColumn2 = document.createElement("div");
                     movieColumn2.setAttribute("class", "aboutMoviesList");
                     p1.innerHTML = "Name: "+arrayOfMovies[i].title;
                     p2.innerHTML = "Vote: "+arrayOfMovies[i].vote_average;
                     p3.innerHTML = "Date: "+arrayOfMovies[i].release_date;
-                    var arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
+                    let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
 
-                    var p4_4 = arrayOfGenre[0];
+                    let p4_4 = arrayOfGenre[0];
                     for (let i = 1; i < arrayOfGenre.length; i++) {
                         p4_4 = p4_4 + "," + arrayOfGenre[i];
                     }
@@ -46,7 +46,7 @@
 
                     movieColumn2.append(p3);
                     movieColumn2.append(p4);
-                    var div = document.createElement("div");
+                    let div = document.createElement("div");
                     div.setAttribute("class", "movieList");
                     div.append(divImg);
                     div.append(movieColumn2);
@@ -60,7 +60,7 @@
             .then(function () {
 
 
-                var movies = document.getElementsByClassName("movieList");
+                let movies = document.getElementsByClassName("movieList");
 
                 for (let i = 5; i < movies.length; i++) {
 
@@ -69,12 +69,12 @@
                 }
                 for (let i = 0; i < movies.length / 5; i++) {
 
-                    var aElement = document.createElement("a");
+                    let aElement = document.createElement("a");
                     aElement.setAttribute("id", i + 1);
                     aElement.innerHTML = i + 1;
                     document.getElementsByClassName("page_num")[0].append(aElement);
                 }
-                var aElement = document.createElement("a");
+                let aElement = document.createElement("a");
                 aElement.setAttribute("id", "next");
                 aElement.innerHTML = "Next";
                 document.getElementsByClassName("page_num")[0].append(aElement);
@@ -83,8 +83,8 @@
             })
     }
 
-    var search_button = document.getElementById("search_button");
-    var mark = document.getElementById("vote_average").value;
+    let search_button = document.getElementById("search_button");
+    let mark = document.getElementById("vote_average").value;
 
     search_button.addEventListener("click", (function () {
         searchForMovie(mark.value)
@@ -92,17 +92,17 @@
 
     function searchForMovie(mark) {
         cnt=1;
-        var filter = document.querySelector('input[name="filters"]:checked').getAttribute("id");
-        var search_input = document.getElementById("search_input").value;
-        var pathToImg = "http://image.tmdb.org/t/p/w185/";
-        var listHTML = document.getElementsByClassName("list")[0];
+        let filter = document.querySelector('input[name="filters"]:checked').getAttribute("id");
+        let search_input = document.getElementById("search_input").value;
+        let pathToImg = "http://image.tmdb.org/t/p/w185/";
+        let listHTML = document.getElementsByClassName("list")[0];
 
         document.getElementsByClassName("list")[0].innerHTML = "";
 
 
         for (let i = 0; i < mainArray.length; i++) {
 
-            var displaying = false;
+            let displaying = false;
 
             if (filter === "title") {
 
@@ -121,7 +121,7 @@
 
             } else if (filter === "genre_ids") {
 
-                var obj = MovieGenre(mainArray[i].genre_ids);
+                let obj = MovieGenre(mainArray[i].genre_ids);
                 for (let i = 0; i < obj.length; i++) {
 
                     console.log(obj[i].toLocaleLowerCase())
@@ -141,22 +141,22 @@
             }
             if (displaying) {
 
-                var divImg = document.createElement("div");
+                let divImg = document.createElement("div");
                 divImg.setAttribute("class", "divImgList");
-                var img = document.createElement("img");
+                let img = document.createElement("img");
                 img.setAttribute("src", pathToImg + mainArray[i].poster_path);
-                var p1 = document.createElement("p");
-                var p2 = document.createElement("p");
-                var p3 = document.createElement("p");
-                var p4 = document.createElement("p");
-                var movieColumn2 = document.createElement("div");
+                let p1 = document.createElement("p");
+                let p2 = document.createElement("p");
+                let p3 = document.createElement("p");
+                let p4 = document.createElement("p");
+                let movieColumn2 = document.createElement("div");
                 movieColumn2.setAttribute("class", "aboutMoviesList");
                 p1.innerHTML = "Name: "+ mainArray[i].title;
                 p2.innerHTML = "Vote: "+mainArray[i].vote_average;
                 p3.innerHTML = "Date: "+mainArray[i].release_date;
-                var arrayOfGenre = movieGenre(mainArray[i].genre_ids);
+                let arrayOfGenre = movieGenre(mainArray[i].genre_ids);
 
-                var p4_4 = arrayOfGenre[0];
+                let p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
@@ -167,7 +167,7 @@
 
                 movieColumn2.append(p3);
                 movieColumn2.append(p4);
-                var div = document.createElement("div");
+                let div = document.createElement("div");
                 div.setAttribute("class", "movieList animated flipInX ");
                 div.append(divImg);
                 div.append(movieColumn2);
@@ -182,7 +182,7 @@
 
     function movieGenre(array) {
 
-        var genreName = [];
+        let genreName = [];
         for (let i = 0; i < array.length; i++) {
 
             if (array[i] === 28) {
@@ -255,10 +255,10 @@
     //prikazani su svi filmovi 
     //sada display none ostale samo prvih 4 display flex kad klikne na ovaj dolje
     document.getElementsByClassName("page_num")[0].addEventListener("click", load4Movies);
-    var cnt = 1;
+    let cnt = 1;
 
     function load4Movies(e) {
-        var movies = document.getElementsByClassName("movieList");
+        let movies = document.getElementsByClassName("movieList");
 
         if (e.target.getAttribute("id").length === 1) {
             cnt = parseInt(e.target.getAttribute("id"));
@@ -286,7 +286,7 @@
     }
 
     function limitedLoad() {
-        var movies = document.getElementsByClassName("movieList");
+        let movies = document.getElementsByClassName("movieList");
         for (let i = 0; i < movies.length; i++) {
             movies[i].style.display = "none";
         }
@@ -300,18 +300,18 @@
 
         }
         document.getElementsByClassName("page_num")[0].innerHTML = "";
-        var aElement = document.createElement("a");
+        let aElement = document.createElement("a");
         aElement.setAttribute("id", "prev");
         aElement.innerHTML = "Prev";
         document.getElementsByClassName("page_num")[0].append(aElement);
         for (let i = 0; i < movies.length / 5; i++) {
 
-            var aElement = document.createElement("a");
+            let aElement = document.createElement("a");
             aElement.setAttribute("id", i + 1);
             aElement.innerHTML = i + 1;
             document.getElementsByClassName("page_num")[0].append(aElement);
         }
-        var aElement = document.createElement("a");
+        let aElement = document.createElement("a");
         aElement.setAttribute("id", "next");
         aElement.innerHTML = "Next";
         document.getElementsByClassName("page_num")[0].append(aElement);
@@ -320,7 +320,7 @@
 
     }
     //za kraj samo na pomjeranje ovog da se displaju odma
-    var mark = document.getElementById("vote_average");
+    mark = document.getElementById("vote_average");
     mark.addEventListener("change", update);
 
     function update(e) {
@@ -332,7 +332,7 @@
 
     (function () {
 
-       var clickToDisplay= document.getElementById("click_display_filters");
+       let clickToDisplay= document.getElementById("click_display_filters");
        clickToDisplay.addEventListener("click",function () {
 
         if(clickToDisplay.innerHTML.indexOf("Display")>-1) {

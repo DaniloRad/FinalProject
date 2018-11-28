@@ -55,7 +55,7 @@
         //elemOfArray - one element of finalArray
         let pathToImg = "http://image.tmdb.org/t/p/w185/";
         let elem = document.createElement("div");
-        elem.setAttribute("class","element animated jackInTheBox");
+        elem.setAttribute("class","element animated rotateIn");
         let img = document.createElement("img");
         img.setAttribute("src",pathToImg + elemOfArray.poster_path);
         img.setAttribute("class","img");
@@ -163,7 +163,7 @@
         p2.innerHTML = "Vote: "+elemOfArray.vote_average;
         p3.innerHTML = "Date: "+elemOfArray.release_date;
         p5.innerHTML="Overview: "+elemOfArray.overview;
-        var arrayOfGenre = MovieGenre(elemOfArray.genre_ids);
+        var arrayOfGenre = movieGenre(elemOfArray.genre_ids);
         var p4_4 = arrayOfGenre[0];
         for (let i = 1; i < arrayOfGenre.length; i++) {
             p4_4 = p4_4 + ", " + arrayOfGenre[i];
@@ -177,7 +177,7 @@
         return movies;
     }
 
-    function MovieGenre(array) {
+    function movieGenre(array) {
         var genreName = [];
         for (let i = 0; i < array.length; i++) {
             if (array[i] === 28) {
@@ -226,5 +226,51 @@
     }
 
     loadMovies();
+
+    
+        
+           
+
+    var body = document.getElementsByClassName("slider")[0];
+    body.addEventListener("touchstart", swipeDown);
+    body.addEventListener("touchend", swipeUp);
+    var swipeX;
+    var swipeY;
+    var swipeRight = 0;
+    function swipeDown(e) {
+        swipeRight = 0;
+        swipeX = e.touches[0].clientX;
+        swipeY = e.touches[0].clientY;
+        console.log (swipeX)
+
+    }
+
+    function swipeUp(e) {
+
+        var xx = e.changedTouches[0].clientX;  
+
+        var yy = e.changedTouches[0].clientY;
+        console.log (e.clientX)
+        console.log (swipeX - xx)
+        if ((Math.abs(swipeX - xx) > 100)) {
+
+            if (swipeX - xx < 0) {
+
+                decreaseRow();
+                showRow(currentRow);
+
+            } else {
+                increaseRow();
+                showRow(currentRow);
+            }
+
+
+        }
+
+
+
+    }
+
+   
 
 })();

@@ -1,4 +1,6 @@
-function LoadMovies() {
+(function () {
+    
+    function loadMovies() {
 
     fetch("https://api.themoviedb.org/3/discover/movie?api_key=9c53b0110d5f6cbf16a45d461096b221&sort_by=popularity.desc&include_adult=false")
         .then(function (response) {
@@ -9,25 +11,25 @@ function LoadMovies() {
         })
         .then(function (arrayOfMovies) { 
 
-            var pathToImg = "http://image.tmdb.org/t/p/w185/";
-            var bestHTML = document.getElementsByClassName("best")[0];
+            let pathToImg = "http://image.tmdb.org/t/p/w185/";
+            let bestHTML = document.getElementsByClassName("best")[0];
             mainArray = arrayOfMovies;
             for (let i = 0; i < 3; i++) {
             //pic
 
- var divImg = document.createElement("div");
+ let divImg = document.createElement("div");
                 divImg.setAttribute("class", "divImg");
-                var img = document.createElement("img");
+                let img = document.createElement("img");
                 img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
 
                 //description
-                var p1 = document.createElement("p");
-                var p2 = document.createElement("p");
-                var p3 = document.createElement("p");
-                var p4 = document.createElement("p");
-                var p5 = document.createElement("p");
+                let p1 = document.createElement("p");
+                let p2 = document.createElement("p");
+                let p3 = document.createElement("p");
+                let p4 = document.createElement("p");
+                let p5 = document.createElement("p");
 
-                var movieColumn2 = document.createElement("div");
+                let movieColumn2 = document.createElement("div");
                 movieColumn2.setAttribute("class", "aboutMovies");
                 p1.innerHTML = "Name: "+arrayOfMovies[i].title;
                 p2.innerHTML = "Vote: "+arrayOfMovies[i].vote_average;
@@ -35,9 +37,9 @@ function LoadMovies() {
                 p5.innerHTML="Overview: "+arrayOfMovies[i].overview;
 
                 //genre
-                var arrayOfGenre = MovieGenre(arrayOfMovies[i].genre_ids);
+                let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
 
-                var p4_4 = arrayOfGenre[0];
+                let p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
@@ -54,7 +56,7 @@ function LoadMovies() {
                 movieColumn2.append(p4);
                 movieColumn2.append(p5);
 
-                var div = document.createElement("div");
+                let div = document.createElement("div");
                 div.setAttribute("class", "movie");
                 div.append(divImg);
                 div.append(movieColumn2);
@@ -72,9 +74,9 @@ function LoadMovies() {
     
     
     };
-    function MovieGenre(array) {
+    function movieGenre(array) {
 
-        var genreName = [];
+        let genreName = [];
         for (let i = 0; i < array.length; i++) {
 
             if (array[i] === 28) {
@@ -142,4 +144,5 @@ function LoadMovies() {
         return genreName;
 
     }
-    LoadMovies();
+    loadMovies();
+})();
