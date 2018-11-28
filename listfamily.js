@@ -18,7 +18,19 @@
                 mainArray = arrayOfMovies;
                 for (let i = 0; i < arrayOfMovies.length; i++) {
 
-
+                    var displaying=false;
+                    var obj = movieGenre(arrayOfMovies[i].genre_ids);
+                    for (let i = 0; i < obj.length; i++) {
+    
+                        if (obj[i].toLowerCase().indexOf("family") > -1) {
+    
+                            displaying=true;
+                            break;
+                        }
+                    }
+    
+                    if(displaying)
+                    {
 
                     var divImg = document.createElement("div");
                     divImg.setAttribute("class", "divImgList");
@@ -53,6 +65,7 @@
                     listHTML.append(div);
 
                 }
+            }
 
 
 
@@ -119,21 +132,19 @@
 
                 }
 
-            } else if (filter === "genre_ids") {
+            } 
 
                 var obj = MovieGenre(mainArray[i].genre_ids);
                 for (let i = 0; i < obj.length; i++) {
 
-                    console.log(obj[i].toLocaleLowerCase())
-
-                    if (obj[i].toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
+                    if (obj[i].toLowerCase().indexOf("family") > -1) {
 
                         displaying = true;
                         break;
 
                     }
 
-                }
+                
 
             }
             if (mark > mainArray[i].vote_average) {

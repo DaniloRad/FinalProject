@@ -1,4 +1,7 @@
-function ModalWindow (e) {
+(function() {
+
+
+function modalWindow (e) {
 
     var divNode=e.target;
         while (!divNode.classList.contains("movie")) {
@@ -18,7 +21,7 @@ function ModalWindow (e) {
 
     }   
     var best = document.getElementsByClassName("best")[0];
-    best.addEventListener ("click",ModalWindow);
+    best.addEventListener ("click",modalWindow);
     var exit = document.getElementsByClassName("exit")[0];
     exit.addEventListener ("click",Exit);
     function Exit (e) {
@@ -29,4 +32,4 @@ function ModalWindow (e) {
 
 
 
-    }    
+    } })    ();

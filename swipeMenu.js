@@ -84,15 +84,14 @@
 
             var cnt=0;
         var menu =document.getElementsByClassName("navigationBarPhone")[0];
-        menu.addEventListener("click",OpenMenu);
-        function OpenMenu () {
-            var a=document.querySelectorAll(".navigationBar li:not(:first-child)");
+        menu.addEventListener("click",openMenu);
+        function openMenu () {
+            var a=document.querySelectorAll(".navigation li:not(:first-child)");
 
 if (cnt===0) {
 for (let i=0;i<a.length;i++) {
     a[i].style.display="block";
 }            
-menu.style.backgroundColor="grey";
 cnt++;
 
 }
@@ -100,7 +99,6 @@ else {
     for (let i=0;i<a.length;i++) {
         a[i].style.display="none";
     }  
-    menu.style.backgroundColor="none";
     cnt=0;
 
 
