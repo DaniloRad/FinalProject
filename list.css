@@ -2,6 +2,7 @@
 body {
     color: white;
     font-family: "Courier New", Courier, monospace;
+
 }
 .container_list {
     background-image: url('test2.jpeg.jpg');
@@ -91,7 +92,7 @@ body {
     height: 25px;
     border:1px solid grey;
     border-radius:100%;
-    background: #black;
+    background-color: black;
     cursor: pointer;
 }
 .list {
@@ -158,13 +159,13 @@ body {
     text-decoration: underline;
 
 }
+
 @media only screen and (max-width: 700px) {
+    
     .list {
         padding-left: 5%;
         padding-right: 5%;
     }
-    body {
-        font-size: 12px;
-    }
+   
     
 }
