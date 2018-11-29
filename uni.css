@@ -3,31 +3,38 @@
 }
 
 body {
-color: white;
+    color: white;
     margin: 0;
     padding: 0;
-    width:100%;
+    width: 100%;
 }
 
 .header,
 .footer {
-/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
-background: rgb(69,72,77); /* Old browsers */
-background: -moz-linear-gradient(top, rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
+    background: rgb(69, 72, 77);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#45484d', endColorstr='#000000', GradientType=0);
+    /* IE6-9 */
     color: rgb(250, 250, 255);
 }
 
 .header {
-border-bottom:1px solid grey;
+    border-bottom: 1px solid grey;
 }
+
 .header:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
+
 .logo {
     float: left;
     display: block;
@@ -39,7 +46,7 @@ border-bottom:1px solid grey;
 .logo img {
     display: block;
     margin: auto;
-    width:auto;
+    width: auto;
     height: 5rem;
 }
 
@@ -48,7 +55,7 @@ border-bottom:1px solid grey;
     padding: 0;
     margin: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     line-height: 5rem;
     text-align: center;
 }
@@ -56,25 +63,32 @@ border-bottom:1px solid grey;
 .navigationBar li {
     padding: 0;
     margin: 0;
-float: left;    
-width: 20%;
+    float: left;
+    width: 20%;
     height: 100%;
-  
+
 }
+
 .navigationBar a {
-    background: rgb(69,72,77); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
-     
+    background: rgb(69, 72, 77);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#45484d', endColorstr='#000000', GradientType=0);
+    /* IE6-9 */
+
 }
+
 .navigationBar a:hover {
     color: goldenrod;
 }
 
 .navigationBar a {
-	font-size:1.5rem;
+    font-size: 1.5rem;
     text-decoration: none;
     color: white;
 
@@ -94,17 +108,16 @@ width: 20%;
 .subMenu {
     position: absolute;
     z-index: 1;
-       color: rgb(250, 250, 255);
+    color: rgb(250, 250, 255);
     display: none;
     flex-direction: column;
     height: inherit;
 }
 
-.subMenu li {
-  
-}
+.subMenu li {}
+
 .siteMap {
- display: inline-block;
+    display: inline-block;
     position: relative;
     right: 0;
     bottom: 0;
@@ -112,24 +125,27 @@ width: 20%;
     font-size: 2vw;
 
 }
+
 .siteMap li {
-    
- display: inline-block;
+
+    display: inline-block;
     padding: 3%;
     padding-bottom: 0;
     padding-top: 0;
 
 }
+
 .footer ul {
     height: 3rem;
-list-style-type: none;
+    list-style-type: none;
     padding: 0;
     margin: 0;
     line-height: 3rem;
 
 }
+
 .siteMap a {
-font-size:1.2rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: white;
 
@@ -137,7 +153,8 @@ font-size:1.2rem;
 
 }
 
-.footer {border-top:1px solid grey;
+.footer {
+    border-top: 1px solid grey;
     position: none;
     bottom: 0;
     left: 0;
@@ -145,86 +162,103 @@ font-size:1.2rem;
     text-align: center;
     font-size: 1.5vw;
 }
-.navigationBar li:first-child{
+
+.navigationBar li:first-child {
     display: none;
 }
+
 .dropDown:hover .subMenu {
-display: flex;
+    display: flex;
 }
+
 @media only screen and (max-width: 1000px) {
-html {font-size:11px;}
-   
+    html {
+        font-size: 11px;
+    }
+
 }
 
 .subMenu li:first-child {
     display: block;
 }
+
 @media only screen and (max-width: 700px) {
-html {font-size:10px;}
-   .logo {
-    width: 20%;
-   }
-   .navigationBar {
-      width: 75%;
-   }
+    html {
+        font-size: 10px;
+    }
+
+    .logo {
+        width: 20%;
+    }
+
+    .navigationBar {
+        width: 75%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
-    
-   .navigationBar a {
-       background: transparent;
-   }
-   
+
+    .navigationBar a {
+        background: transparent;
+    }
+
     .subMenu {
         position: relative;
         display: flex;
     }
 
-	.navigationBar li:first-child {
-    display: inline-block;
-}
+    .navigationBar li:first-child {
+        display: inline-block;
+    }
+
     .navigationBar {
         display: inline-block;
         width: 100%;
         font-size: 3.5vw;
-height: auto;
-float: none;
+        height: auto;
+        float: none;
         text-align: left;
     }
-    
+
     .logo {
         width: 100%;
         display: block;
         margin: auto;
     }
+
     .navigationBar li {
-     
+
         display: block;
-width:100%;
+        width: 100%;
     }
+
     .subMenu li {
-        
+
         height: auto;
     }
-   
-   
+
+
     .navigationBar a {
         text-align: left;
         padding-left: 5%;
 
         display: block;
-   
-    border-bottom: 1px solid goldenrod;
+
+        border-bottom: 1px solid goldenrod;
     }
+
     .navigationBar li:not(:first-child) {
         display: none;
     }
+
     .navigationBarPhone {
         display: block;
     }
+
     .footer {
         font-size: 3.5vw;
     }
+
     .subMenu a {
         text-align: center;
 

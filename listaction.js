@@ -18,54 +18,53 @@
                 mainArray = arrayOfMovies;
                 for (let i = 0; i < arrayOfMovies.length; i++) {
 
-                    let displaying=false;
+                    let displaying = false;
                     let obj = movieGenre(arrayOfMovies[i].genre_ids);
                     for (let i = 0; i < obj.length; i++) {
-    
+
                         if (obj[i].toLowerCase().indexOf("action") > -1) {
-    
-                            displaying=true;
+
+                            displaying = true;
                             break;
                         }
                     }
-    
-                    if(displaying)
-                    {
 
-                    let divImg = document.createElement("div");
-                    divImg.setAttribute("class", "divImgList");
-                    let img = document.createElement("img");
-                    img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
-                    let p1 = document.createElement("p");
-                    let p2 = document.createElement("p");
-                    let p3 = document.createElement("p");
-                    let p4 = document.createElement("p");
-                    let movieColumn2 = document.createElement("div");
-                    movieColumn2.setAttribute("class", "aboutMoviesList");
-                    p1.innerHTML = "Name: "+arrayOfMovies[i].title;
-                    p2.innerHTML = "Vote: "+arrayOfMovies[i].vote_average;
-                    p3.innerHTML = "Date: "+arrayOfMovies[i].release_date;
-                    let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
+                    if (displaying) {
 
-                    let p4_4 = arrayOfGenre[0];
-                    for (let i = 1; i < arrayOfGenre.length; i++) {
-                        p4_4 = p4_4 + "," + arrayOfGenre[i];
+                        let divImg = document.createElement("div");
+                        divImg.setAttribute("class", "divImgList");
+                        let img = document.createElement("img");
+                        img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
+                        let p1 = document.createElement("p");
+                        let p2 = document.createElement("p");
+                        let p3 = document.createElement("p");
+                        let p4 = document.createElement("p");
+                        let movieColumn2 = document.createElement("div");
+                        movieColumn2.setAttribute("class", "aboutMoviesList");
+                        p1.innerHTML = "Name: " + arrayOfMovies[i].title;
+                        p2.innerHTML = "Vote: " + arrayOfMovies[i].vote_average;
+                        p3.innerHTML = "Date: " + arrayOfMovies[i].release_date;
+                        let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
+
+                        let p4_4 = arrayOfGenre[0];
+                        for (let i = 1; i < arrayOfGenre.length; i++) {
+                            p4_4 = p4_4 + "," + arrayOfGenre[i];
+                        }
+                        p4.innerHTML = "Genre: " + p4_4;
+                        divImg.append(img);
+                        movieColumn2.append(p1);
+                        movieColumn2.append(p2);
+
+                        movieColumn2.append(p3);
+                        movieColumn2.append(p4);
+                        let div = document.createElement("div");
+                        div.setAttribute("class", "movieList");
+                        div.append(divImg);
+                        div.append(movieColumn2);
+                        listHTML.append(div);
+
                     }
-                    p4.innerHTML ="Genre: "+p4_4;
-                    divImg.append(img);
-                    movieColumn2.append(p1);
-                    movieColumn2.append(p2);
-
-                    movieColumn2.append(p3);
-                    movieColumn2.append(p4);
-                    let div = document.createElement("div");
-                    div.setAttribute("class", "movieList");
-                    div.append(divImg);
-                    div.append(movieColumn2);
-                    listHTML.append(div);
-
                 }
-            }
 
 
 
@@ -104,7 +103,7 @@
     }));
 
     function searchForMovie(mark) {
-        cnt=1;
+        cnt = 1;
         let filter = document.querySelector('input[name="filters"]:checked').getAttribute("id");
         let search_input = document.getElementById("search_input").value;
         let pathToImg = "http://image.tmdb.org/t/p/w185/";
@@ -123,34 +122,34 @@
 
                     let obj = movieGenre(mainArray[i].genre_ids);
                     for (let i = 0; i < obj.length; i++) {
-    
+
                         if (obj[i].toLowerCase().indexOf("action") > -1) {
-    
+
                             displaying = true;
                             break;
-    
+
                         }
-    
+
+                    }
                 }
-            }
             } else if (filter === "release_date") {
 
                 if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
 
                     let obj = movieGenre(mainArray[i].genre_ids);
                     for (let i = 0; i < obj.length; i++) {
-    
+
                         if (obj[i].toLowerCase().indexOf("horror") > -1) {
-    
+
                             displaying = true;
                             break;
-    
-                        }
-    
-                }
 
-            } 
-        }
+                        }
+
+                    }
+
+                }
+            }
             if (mark > mainArray[i].vote_average) {
                 displaying = false;
             }
@@ -166,16 +165,16 @@
                 let p4 = document.createElement("p");
                 let movieColumn2 = document.createElement("div");
                 movieColumn2.setAttribute("class", "aboutMoviesList");
-                p1.innerHTML = "Name: "+ mainArray[i].title;
-                p2.innerHTML = "Vote: "+mainArray[i].vote_average;
-                p3.innerHTML = "Date: "+mainArray[i].release_date;
+                p1.innerHTML = "Name: " + mainArray[i].title;
+                p2.innerHTML = "Vote: " + mainArray[i].vote_average;
+                p3.innerHTML = "Date: " + mainArray[i].release_date;
                 let arrayOfGenre = movieGenre(mainArray[i].genre_ids);
 
                 let p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
-                p4.innerHTML ="Genre: "+ p4_4;
+                p4.innerHTML = "Genre: " + p4_4;
                 divImg.append(img);
                 movieColumn2.append(p1);
                 movieColumn2.append(p2);
@@ -201,63 +200,63 @@
         for (let i = 0; i < array.length; i++) {
 
             if (array[i] === 28) {
-                genreName[i] = "action"+" ";
+                genreName[i] = "action" + " ";
             } else if (array[i] === 16) {
-                genreName[i] = "animated"+" ";
+                genreName[i] = "animated" + " ";
 
             } else if (array[i] === 16) {
-                genreName[i] = "animated"+" ";
+                genreName[i] = "animated" + " ";
 
             } else if (array[i] === 99) {
-                genreName[i] = "documentary"+" ";
+                genreName[i] = "documentary" + " ";
 
             } else if (array[i] === 18) {
-                genreName[i] = "drama"+" ";
+                genreName[i] = "drama" + " ";
 
             } else if (array[i] === 10751) {
-                genreName[i] = "family"+" ";
+                genreName[i] = "family" + " ";
 
             } else if (array[i] === 14) {
-                genreName[i] = "fantasy"+" ";
+                genreName[i] = "fantasy" + " ";
 
             } else if (array[i] === 36) {
-                genreName[i] = "fistory"+" ";
+                genreName[i] = "fistory" + " ";
 
             } else if (array[i] === 35) {
-                genreName[i] = "comedy"+" ";
+                genreName[i] = "comedy" + " ";
 
             } else if (array[i] === 10752) {
-                genreName[i] = "war"+" ";
+                genreName[i] = "war" + " ";
 
             } else if (array[i] === 80) {
-                genreName[i] = "crime"+" ";
+                genreName[i] = "crime" + " ";
 
             } else if (array[i] === 10402) {
-                genreName[i] = "music"+" ";
+                genreName[i] = "music" + " ";
 
             } else if (array[i] === 9648) {
-                genreName[i] = "mystery"+" ";
+                genreName[i] = "mystery" + " ";
 
             } else if (array[i] === 10749) {
-                genreName[i] = "romance"+" ";
+                genreName[i] = "romance" + " ";
 
             } else if (array[i] === 878) {
-                genreName[i] = "sci-fi"+" ";
+                genreName[i] = "sci-fi" + " ";
 
             } else if (array[i] === 27) {
-                genreName[i] = "horror"+" ";
+                genreName[i] = "horror" + " ";
 
             } else if (array[i] === 10770) {
-                genreName[i] = "tv movie"+" ";
+                genreName[i] = "tv movie" + " ";
 
             } else if (array[i] === 53) {
-                genreName[i] = "thriller"+" ";
+                genreName[i] = "thriller" + " ";
 
             } else if (array[i] === 37) {
-                genreName[i] = "western"+" ";
+                genreName[i] = "western" + " ";
 
             } else if (array[i] === 12) {
-                genreName[i] = "pleasure"+" ";
+                genreName[i] = "pleasure" + " ";
 
             }
 
@@ -335,32 +334,31 @@
 
     }
     //za kraj samo na pomjeranje ovog da se displaju odma
-     mark = document.getElementById("vote_average");
+    mark = document.getElementById("vote_average");
     mark.addEventListener("change", update);
 
     function update(e) {
 
         searchForMovie(e.target.value);
-        document.getElementById("vote_average_value").innerHTML=e.target.value;
+        document.getElementById("vote_average_value").innerHTML = e.target.value;
 
     }
 
     (function () {
 
-       let clickToDisplay= document.getElementById("click_display_filters");
-       clickToDisplay.addEventListener("click",function () {
+        let clickToDisplay = document.getElementById("click_display_filters");
+        clickToDisplay.addEventListener("click", function () {
 
-        if(clickToDisplay.innerHTML.indexOf("Display")>-1) {
-             document.getElementsByClassName("filter")[0].style.display="flex";
-        clickToDisplay.innerHTML="Hide Filters 	&uarr;";
-        }
-       else {
-        document.getElementsByClassName("filter")[0].style.display="none";
-        clickToDisplay.innerHTML="Display Filters 	&darr;";
-       }
+            if (clickToDisplay.innerHTML.indexOf("Display") > -1) {
+                document.getElementsByClassName("filter")[0].style.display = "flex";
+                clickToDisplay.innerHTML = "Hide Filters 	&uarr;";
+            } else {
+                document.getElementsByClassName("filter")[0].style.display = "none";
+                clickToDisplay.innerHTML = "Display Filters 	&darr;";
+            }
 
-       })
+        })
 
-    }) ();
+    })();
 
 })();
