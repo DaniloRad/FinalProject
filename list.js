@@ -69,12 +69,12 @@
                 }
                 for (let i = 0; i < movies.length / 5; i++) {
 
-                    let aElement = document.createElement("a");
+                     aElement = document.createElement("a");
                     aElement.setAttribute("id", i + 1);
                     aElement.innerHTML = i + 1;
                     document.getElementsByClassName("page_num")[0].append(aElement);
                 }
-                let aElement = document.createElement("a");
+                 aElement = document.createElement("a");
                 aElement.setAttribute("id", "next");
                 aElement.innerHTML = "Next";
                 document.getElementsByClassName("page_num")[0].append(aElement);
@@ -306,12 +306,12 @@
         document.getElementsByClassName("page_num")[0].append(aElement);
         for (let i = 0; i < movies.length / 5; i++) {
 
-            let aElement = document.createElement("a");
+             aElement = document.createElement("a");
             aElement.setAttribute("id", i + 1);
             aElement.innerHTML = i + 1;
             document.getElementsByClassName("page_num")[0].append(aElement);
         }
-        let aElement = document.createElement("a");
+         aElement = document.createElement("a");
         aElement.setAttribute("id", "next");
         aElement.innerHTML = "Next";
         document.getElementsByClassName("page_num")[0].append(aElement);
