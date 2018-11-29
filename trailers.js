@@ -31,6 +31,11 @@
                 }
 
             })
+            .catch(function() {
+
+                let div = document.getElementsByClassName("video")[0];
+                div.innerHTML="Error with database";
+            })
 
     };
     test();

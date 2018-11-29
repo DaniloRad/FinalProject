@@ -70,7 +70,12 @@
 
         
         })
-    
+        .catch(function() {
+
+            let div = document.getElementsByClassName("best")[0];
+            div.innerHTML="Error with database";
+        })
+
     
     
     };

@@ -93,6 +93,12 @@
 
 
             })
+            .catch(function() {
+
+                let div = document.getElementsByClassName("list")[0];
+                div.innerHTML="Error with database";
+            })
+
     }
 
     let search_button = document.getElementById("search_button");
