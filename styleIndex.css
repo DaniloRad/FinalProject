@@ -6,6 +6,7 @@ body{
     font-family: "Courier New", Courier, monospace;
     margin: 0;
     padding: 0;
+
 color:white;
 }
 
@@ -26,30 +27,41 @@ background-size:cover;
 }
 .column_left {
     background-image: url('test2.jpeg.jpg');
+
 background-size:cover;
     flex: 4;
 margin:2%;
 margin-left:10%;
 
 }
+
 .column_right{
-margin-right:15%;
-margin-top:2%;
+    margin-right:15%;
+    margin-top:2%;
 	text-align:center;
+    display: flex;
     background-color:transparent;
     flex: 0.5;
     flex-direction: column;
 }
 
 .best{
-
-margin-top:2%;
-border:2px outset grey;
-border-radius:2%;
-
-   
-   
+    margin-top:2%;
+    border:2px outset grey;
+    border-radius:2%; 
 }
+
+h3{
+    font-size: 1.5vw;
+    color: goldenrod;
+}
+
+
+
+
+   
+   
+
 
 .fb-page {
 border: 2px outset gray;
@@ -88,8 +100,10 @@ display:none;
     align-self: center;
 }
 .modal_window {
-   background-image: url('test2.jpeg.jpg');
-background-size:cover;
+    background-color: black;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: rgb(238, 203, 113);
+
     position: fixed;
     top: 5vh;
     left: 5vw;
@@ -161,15 +175,13 @@ background-size:cover;
     }
     
     .readMore{
-        /*position: relative;
-        bottom: 0;
-        right: 0;*/
-        padding: 0;
+       
         width: 40%;
         height: 14%;
-        background-color: rgb(30, 27, 49);
-        color: rgb(250, 250, 255);
+        background-color: goldenrod;
+        color: black;
         text-align: center;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
     
     #prev, #next{
@@ -180,12 +192,14 @@ background-size:cover;
         font-size: 3vw;
         text-shadow: 0 0 20px rgba(0,0,0,0.6);
         text-align: center;
+
         text-decoration: none;
         position: absolute;
         top: 50%;
         color: white;
         cursor: pointer;
-    align-self:center;
+        align-self:center;
+
       }
     
       #prev {  
@@ -198,6 +212,20 @@ background-size:cover;
     .element img {
      width: 100%; 
           height: 18rem;
+    }
+      .image{
+          width: 100%; 
+          height: 100%;
+      }
+    
+    
+@media only screen and (max-width: 500px) {
+    .column_right {
+        display:none;
+    }
+    .column_left{
+         margin:2%;
+
     }
       .image{
           width: 100%; 
@@ -217,8 +245,11 @@ background-size:cover;
 display:none;
 
 }
-.column_left{
 
+
+.dropDown:hover{
+    font-weight: bold;
+    color: goldenrod;
 margin:2%;
 }
 

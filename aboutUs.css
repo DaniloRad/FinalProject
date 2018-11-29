@@ -4,6 +4,7 @@
 
 .about{
     padding: 5%;
+    background-color: black;
 }
 
 .person{
@@ -25,4 +26,5 @@ body{
 
 b{
     font-size: 2vw;
+    color: goldenrod;
 }
