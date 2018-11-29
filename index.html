@@ -7,11 +7,20 @@
         <link rel="stylesheet" href="uni.css">        
         <link rel="stylesheet" href="styleIndex.css">        
 
+  
     </head> 
 
-    <body>
+    <body><div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.2';
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      </script>
         <div class="modal_window animated jackInTheBox ">
-            <span class="exit"><b>X</b></span>
+            <span class="exit">✖</span>
             <div class="modal_window_img">
             </div> 
             <div class="modal_windows_about">
@@ -25,21 +34,23 @@
             <div class="navigationBar">
                 <ul class="navigation">
                     <li class="navigationBarPhone"><a>Home</a></li>
-                    <li ><a href="index.html"><b>Home</b></a></li>
+                    <li ><a href="index.html">Home</a></li>
                     <li class="dropDown"><a href="list.html">List</a> 
-                        <ul class="subMenu">
-                            <li><a href="list_action.html">Action</a></li>
-                            <li><a href="list_family.html">Family</a></li>
-                            <li><a href="list_horror.html">Horror</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="list.html">Custom page</a></li>
+                         <ul class="subMenu">
+
+                        <li><a href="list_action.html">Action</a></li>
+                        <li><a href="list_family.html">Family</a></li>
+                        <li><a href="list_horror.html">Horror</a></li>
+
+
+                </ul>
+                </li>
                     <li><a>Contact</a></li>
                     <li><a href="aboutUs.html">About us</a></li>
                 </ul>
             </div>
             </div>
-        </div>
+   
         <div class="container">
             <div class="column_left"> 
                 <div class="slider">
@@ -57,7 +68,9 @@
             <div class="column_right"> 
                 <h3>Best</h3>
                 <div class="best"></div>
-                <div class="facebook_feed"></div>
+                <div class="facebook_feed" style="width: 10rem;">
+                        <div class="fb-page" data-href="https://www.facebook.com/moviedbb/" data-tabs="timeline" data-width="70" data-height="100" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/moviedbb/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/moviedbb/">Movie database</a></blockquote></div>
+                </div>
             </div>
             </div>
         <div class="footer">
@@ -67,6 +80,8 @@
                 <li><a href="aboutUs.html" target="_blank">About us</a></li>
             </ul>
         </div>
+    </div>
+    <script></script>
         <script src="best.js"></script>
         <script src="swipeMenu.js"></script>
         <script src="ModalWindow.js"></script>

@@ -150,12 +150,13 @@ body {
     padding-bottom: 2%;
 }
 .page_num a:hover {
-    text-decoration: underline;
-}
 
-.currPage {
     text-decoration: underline;
+
 }
+.currPage {
+
+    text-decoration: underline;
 
 b{
     font-size: 2vw;
@@ -163,8 +164,12 @@ b{
 }
 
 @media only screen and (max-width: 700px) {
+
+    
     .list {
         padding-left: 5%;
         padding-right: 5%;
-    } 
+    }
+   
+    
 }
