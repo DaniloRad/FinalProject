@@ -1,16 +1,17 @@
-
 body {
     color: white;
     font-family: "Courier New", Courier, monospace;
 
 }
+
 .container_list {
     background-image: url('test2.jpeg.jpg');
-    background-size:cover;
+    background-size: cover;
     display: flex;
     width: 100%;
     flex-direction: column;
 }
+
 .search {
     flex: 1;
     display: inherit;
@@ -18,25 +19,29 @@ body {
     justify-content: center;
 
 }
+
 #search_input {
     width: 40%;
     display: block;
     padding: 5px;
-    border: 1px solid #ccc;    
-    padding-top:10px;
-    padding-bottom:10px;
+    border: 1px solid #ccc;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 
 
 }
+
 #search_button {
     padding-left: 10px;
     padding-right: 10px;
     background-image: url('search.png');
 }
-.fa-search{
+
+.fa-search {
     font-size: 22px;
 }
+
 .filter {
     flex: 1;
     display: none;
@@ -44,19 +49,23 @@ body {
     justify-content: center;
 
 }
+
 .filter p {
     align-self: center;
     margin: 0;
 }
+
 .filter_display>p {
     text-align: center;
     padding: 10px;
     font-size: 1.7rem;
 }
+
 .filter_display p:hover {
     color: white;
     cursor: pointer;
 }
+
 .filter label {
     padding-right: 2%;
 }
@@ -70,7 +79,7 @@ body {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
-    border:1px solid white;
+    border: 1px solid white;
 }
 
 #vote_average:hover {
@@ -83,18 +92,19 @@ body {
     width: 25px;
     height: 25px;
     background: black;
-    border:1px solid white;
+    border: 1px solid white;
     cursor: pointer;
 }
 
 #vote_average::-moz-range-thumb {
     width: 25px;
     height: 25px;
-    border:1px solid grey;
-    border-radius:100%;
+    border: 1px solid grey;
+    border-radius: 100%;
     background-color: black;
     cursor: pointer;
 }
+
 .list {
     width: 100%;
     background-color: transparent;
@@ -103,15 +113,16 @@ body {
     display: flex;
     flex-direction: column;
 }
-.list a{
-    font-size:1.4rem;
+
+.list a {
+    font-size: 1.4rem;
 }
 
 .list img {
- display:block;
- height: auto;
- width: 100%;
- min-width: 80px;
+    display: block;
+    height: auto;
+    width: 100%;
+    min-width: 80px;
 }
 
 .movieList {
@@ -120,12 +131,15 @@ body {
     word-wrap: break-word;
 
 }
+
 .movieList:nth-child(odd) {
     border: 2px inset grey;
 }
+
 .movieList:nth-child(even) {
     border: 2px outset grey;
 }
+
 .divImgList {
     flex: 1;
 }
@@ -149,30 +163,26 @@ body {
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
 .page_num a:hover {
 
     text-decoration: underline;
 
 }
+
 .currPage {
 
     text-decoration: underline;
-}
 
-b{
-    font-weight: bold;
-    color: goldenrod;
 }
-
 
 @media only screen and (max-width: 700px) {
 
-    
+
     .list {
         padding-left: 5%;
         padding-right: 5%;
     }
-   
-    
-}
 
+
+}
