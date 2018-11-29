@@ -218,6 +218,14 @@ display:none;
           height: 100%;
       }
     
+        b{
+            font-weight: bold;
+            color: goldenrod;
+        }
+      
+    .footer li:hover{
+        color: goldenrod;
+    }
     
 @media only screen and (max-width: 500px) {
     .column_right {
@@ -231,6 +239,7 @@ display:none;
           width: 100%; 
           height: 100%;
       }
+    }
     
       @media only screen and (max-width: 700px) {
           .facebook_feed {
@@ -250,7 +259,7 @@ display:none;
 .dropDown:hover{
     font-weight: bold;
     color: goldenrod;
-margin:2%;
-}
+    margin:2%;
+}}
 
-}
+

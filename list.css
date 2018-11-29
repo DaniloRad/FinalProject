@@ -157,11 +157,13 @@ body {
 .currPage {
 
     text-decoration: underline;
+}
 
 b{
-    font-size: 2vw;
+    font-weight: bold;
     color: goldenrod;
 }
+
 
 @media only screen and (max-width: 700px) {
 
@@ -173,3 +175,4 @@ b{
    
     
 }
+
