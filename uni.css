@@ -171,6 +171,11 @@ body {
     display: flex;
 }
 
+b{
+    font-weight: bold;
+    color: goldenrod;
+}
+
 @media only screen and (max-width: 1000px) {
     html {
         font-size: 11px;
