@@ -1,7 +1,7 @@
 function LoadMovies() {
 
     var mainArray;
-    fetch("https://api.themoviedb.org/3/discover/movie?api_key=9c53b0110d5f6cbf16a45d461096b221&sort_by=popularity.desc&include_adult=false")
+    fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=9c53b0110d5f6cbf16a45d461096b221&language=en-US&page=1")
         .then(function (response) {
             return response.json();
         })
