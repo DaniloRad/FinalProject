@@ -232,8 +232,7 @@
     body.addEventListener("touchstart", swipeDown);
     body.addEventListener("touchend", swipeUp);
     var swipeX;
-    var swipeY;
-    var swipeRight = 0;
+  
 
     function swipeDown(e) {
         swipeRight = 0;

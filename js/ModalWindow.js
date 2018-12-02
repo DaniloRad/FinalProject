@@ -18,8 +18,16 @@
         document.getElementsByClassName("noneClick")[0].style.pointerEvents = "none";
 
         modalWindow.style.display = "flex";
+
         modalWindowImg.innerHTML = divNode[0].innerHTML;
-        modalWindowAbout.innerHTML = divNode[1].innerHTML;
+        let pNodes = divNode[1].childNodes;
+        var  htmlCode="<p> Name: " + pNodes[0].innerHTML+ "</p>" ;
+          htmlCode=htmlCode+"<p> Vote: " + pNodes[1].innerHTML+ "</p>" ;
+          htmlCode=htmlCode+"<p> Date: " + pNodes[2].innerHTML+ "</p>" ;
+          htmlCode=htmlCode+"<p> Genre: " + pNodes[3].innerHTML+ "</p>" ;
+          htmlCode=htmlCode+"<p> Overview: " + pNodes[4].innerHTML+ "</p>" ;
+        modalWindowAbout.innerHTML=htmlCode;
+
 
 
 
