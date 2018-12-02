@@ -1,4 +1,4 @@
-var body = document.getElementsByTagName("slider")[0];
+function main() {var body = document.getElementsByTagName("slider")[0];
 body.addEventListener("touchstart", swipeDown);
 body.addEventListener("touchend", swipeUp);
 var swipeX;
@@ -40,3 +40,5 @@ function swipeUp(e) {
 
 
 }
+}
+main();

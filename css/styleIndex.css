@@ -14,7 +14,7 @@ body {
 
 
 .container {
-    background-image: url('test2.jpeg.jpg');
+    background-image:url("../img/bg.jpg") ;
     background-size: cover;
     display: flex;
     width: 100%;
@@ -28,7 +28,7 @@ body {
 }
 
 .column_left {
-    background-image: url('test2.jpeg.jpg');
+    background-image:url("../img/bg.jpg") ;
 
     background-size: cover;
     flex: 4;
@@ -96,7 +96,10 @@ h3 {
     display: block;
 
 }
-
+.best img:hover,.top_rated img:hover {
+outline: 2px solid gold;    
+outline-offset: 2px;
+}
 .divImg img:hover {
     cursor: pointer;
 

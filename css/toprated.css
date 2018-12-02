@@ -16,12 +16,12 @@ html {
     display: table;
     clear: both;
 }
-.top_rated .movieLoad {
+.top_rated .movie {
 width: 100%;
 text-align: center;
 
 }
-.movieLoad .divImg img {
+.movie .divImg img {
     margin: auto;
     text-align: center;
     display: block;
@@ -29,7 +29,7 @@ text-align: center;
     height: 15rem;
 }
 
-.movieLoad .divImg {
+.movie .divImg {
 }
 .aboutMoviesLoad {
     padding-top: 1%;
@@ -51,6 +51,11 @@ text-align: center;
     height: 100%;
     border: 1px dashed goldenrod;
     border-radius: 10px;
+}
+.top_rated p:last-child {
+
+    display: none;
+
 }
 .load{
     font-size: 1.3rem;

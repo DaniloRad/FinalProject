@@ -6,7 +6,7 @@
 
     function loadMovies() {
 
-        let movie = document.getElementsByClassName("movieLoad");
+        let movie = document.getElementsByClassName("movie");
         for (let i = cnt; i < cnt + 3; i++) {
 
             if(movie[i]!=undefined)

@@ -3,9 +3,10 @@
 
     function modalWindow(e) {
 
-
+        let cnt=0;
         let divNode = e.target;
-        while (!divNode.classList.contains("movie")) {
+        while (!divNode.classList.contains("movie") && cnt <4) {
+            cnt++;
             divNode = divNode.parentElement;
         }
         divNode = divNode.childNodes;
@@ -25,13 +26,16 @@
     }
     let best = document.getElementsByClassName("best")[0];
     best.addEventListener("click", modalWindow);
-    let exit = document.getElementsByClassName("exit")[0];
-    exit.addEventListener("click", Exit);
+    let topRated=document.getElementsByClassName("top_rated")[0];
+    topRated.addEventListener("click", modalWindow);
+    
+    let exitButton = document.getElementsByClassName("exit")[0];
+    exitButton.addEventListener("click", exit);
 
-    function Exit(e) {
+    function exit(e) {
 
-        document.getElementsByClassName("noneClick")[0].style.pointerEvents = "auto";
         document.getElementsByClassName("modal_window")[0].style.display = "none";
+        document.getElementsByClassName("noneClick")[0].style.pointerEvents = "auto";
 
 
 
