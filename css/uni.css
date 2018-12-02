@@ -171,7 +171,7 @@ body {
     display: flex;
 }
 
-b{
+strong{
     font-weight: bold;
     color: goldenrod;
 }
