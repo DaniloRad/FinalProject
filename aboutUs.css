@@ -1,0 +1,61 @@
+*{
+    box-sizing: border-box;
+}
+
+.about {
+    display: flex;
+   
+}
+.about {
+    height: 70vh;
+}
+.text{
+ flex: 40%;
+ color: rgb(153, 153, 153);
+ text-align: center;
+ padding-top: 10%;
+}
+.img {
+    flex: 60%;  
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.team{
+    display: flex;
+    padding: 5%;
+    background-color: rgba(0, 0, 0, 0.95);;
+}
+
+.person{
+    flex: 30%;
+    padding: 2% 0;
+    border-bottom: 1px outset rgb(250, 250, 255);
+    ;
+}
+
+
+a{
+    text-decoration: none;
+    color: rgb(250, 250, 255);
+}
+
+body{
+    font-size: 1.5rem;
+    background-color:  rgba(0, 0, 0, 0.95);
+    color: rgb(250, 250, 255);
+}
+
+@media only screen and (max-width: 500px) {
+.about {
+    display: block;
+}
+
+  
+     
+}
+
+
+
