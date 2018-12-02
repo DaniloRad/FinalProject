@@ -22,7 +22,6 @@
                 let div = document.getElementsByClassName("video")[0];
                 div.innerHTML = "";
                 for (let i = 0; i < 5; i++) {
-                    console.log(items[i])
                     iframe = document.createElement("iframe");
                     iframe.setAttribute("src", link + items[i].id.videoId);
                     div.append(iframe);

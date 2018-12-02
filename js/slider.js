@@ -238,7 +238,6 @@
         swipeRight = 0;
         swipeX = e.touches[0].clientX;
         swipeY = e.touches[0].clientY;
-        console.log(swipeX)
 
     }
 
@@ -247,8 +246,7 @@
         var xx = e.changedTouches[0].clientX;
 
         var yy = e.changedTouches[0].clientY;
-        console.log(e.clientX)
-        console.log(swipeX - xx)
+        
         if ((Math.abs(swipeX - xx) > 100)) {
 
             if (swipeX - xx < 0) {

@@ -8,8 +8,9 @@ iframe {
     height: 50vh;
     margin-left: 25%;
 }
-
-
+body {
+    background-color: url("../img/bg.jpg")
+}
 @media only screen and (max-width: 780px) {
     iframe {
         width: 100vw;

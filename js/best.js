@@ -31,10 +31,10 @@
 
                 let movieColumn2 = document.createElement("div");
                 movieColumn2.setAttribute("class", "aboutMovies");
-                p1.innerHTML = "Name: "+arrayOfMovies[i].title;
-                p2.innerHTML = "Vote: "+arrayOfMovies[i].vote_average;
-                p3.innerHTML = "Date: "+arrayOfMovies[i].release_date;
-                p5.innerHTML="Overview: "+arrayOfMovies[i].overview;
+                p1.innerHTML = arrayOfMovies[i].title;
+                p2.innerHTML = arrayOfMovies[i].vote_average;
+                p3.innerHTML = arrayOfMovies[i].release_date;
+                p5.innerHTML=arrayOfMovies[i].overview;
 
                 //genre
                 let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
@@ -43,7 +43,7 @@
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
-                p4.innerHTML = "Genre: "+p4_4;
+                p4.innerHTML = p4_4;
 
                
 

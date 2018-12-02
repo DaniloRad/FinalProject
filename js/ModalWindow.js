@@ -38,9 +38,10 @@
     topRated.addEventListener("click", modalWindow);
     
     let exitButton = document.getElementsByClassName("exit")[0];
-    exitButton.addEventListener("click", exit);
+    exitButton.addEventListener("click", exitBtn);
 
-    function exit(e) {
+    function exitBtn(e) {
+       
 
         document.getElementsByClassName("modal_window")[0].style.display = "none";
         document.getElementsByClassName("noneClick")[0].style.pointerEvents = "auto";

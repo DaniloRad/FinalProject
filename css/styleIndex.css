@@ -71,6 +71,7 @@ h3 {
 }
 
 .facebook_feed {
+    
     margin-top: 4%;
     margin-bottom: 4%;
 }
@@ -130,18 +131,22 @@ outline-offset: 2px;
     overflow-y: scroll;
 }
 
-.modal_window span {
+.exit{
     background-color: darkred;
     width: 1.5rem;
     height: 1.5rem;
-    position: fixed;
-    top: 5vh;
+position: absolute;    top: 5vh;
     left: 5vw;
     font-size: 1.1rem;
     text-align: center;
+    z-index: 10;
+}
+.exit:hover {
+    color:rgb(8, 8, 8);
+    
 }
 
-.modal_window span:hover {
+.exit:hover {
     cursor: pointer;
 }
 
@@ -229,7 +234,9 @@ outline-offset: 2px;
 #next {
     right: 0;
 }
-
+#next:hover,#prev:hover {
+    color: goldenrod;
+}
 .element img {
     width: 100%;
     height: 18rem;
@@ -244,6 +251,9 @@ outline-offset: 2px;
 
 
 @media only screen and (max-width: 500px) {
+    #prev,#next {
+        display:none;
+    }
 .column_right {
         display: none;
     }
