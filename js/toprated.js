@@ -35,7 +35,6 @@ function LoadMovies() {
                 p2.innerHTML = arrayOfMovies[i].vote_average;
                 p3.innerHTML = arrayOfMovies[i].release_date;
                 p5.innerHTML = arrayOfMovies[i].overview;
-                console.log(p5)
 
 
                 let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);

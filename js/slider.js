@@ -90,7 +90,7 @@
     }
 
     function increaseRow() {
-        if (currentRow == 3) {
+        if (currentRow === 3) {
             currentRow = 1;
         } else {
             currentRow++;
@@ -99,7 +99,7 @@
     }
 
     function decreaseRow() {
-        if (currentRow == 1) {
+        if (currentRow === 1) {
             currentRow = 3;
         } else {
             currentRow--;

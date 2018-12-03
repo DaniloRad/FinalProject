@@ -2,6 +2,7 @@
 
     let mainArray;
     loadMovies();
+    document.getElementsByTagName("body")[0].onkeydown = checkKey;
 
     function loadMovies() {
 
@@ -95,6 +96,12 @@
     search_button.addEventListener("click", (function () {
         searchForMovie(mark.value)
     }));
+
+    function checkKey(e){
+        if(e.keyCode===13){
+            searchForMovie(mark.value);
+        }
+    }
 
     function searchForMovie(mark) {
         cnt = 1;
