@@ -1,5 +1,18 @@
 (function () {
-    
+
+    let arrayOfGenresAPI;
+    function returnArrayOfGenresAPI(){
+        fetch("https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=52fc43195daf9730aa9bd854898d0c7a")
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (array) {
+            arrayOfGenresAPI = array.genres.slice(0);
+        })        
+    }
+
+    returnArrayOfGenresAPI();
+
     function loadMovies() {
 
     fetch("https://api.themoviedb.org/3/discover/movie?api_key=9c53b0110d5f6cbf16a45d461096b221&sort_by=popularity.desc&include_adult=false")
@@ -79,75 +92,17 @@
     
     
     };
-    function movieGenre(array) {
-
-        let genreName = [];
-        for (let i = 0; i < array.length; i++) {
-
-            if (array[i] === 28) {
-                genreName[i] = "action";
-            } else if (array[i] === 16) {
-                genreName[i] = "animated";
-
-            } else if (array[i] === 16) {
-                genreName[i] = "animated";
-
-            } else if (array[i] === 99) {
-                genreName[i] = "documentary";
-
-            } else if (array[i] === 18) {
-                genreName[i] = "drama";
-
-            } else if (array[i] === 10751) {
-                genreName[i] = "family";
-
-            } else if (array[i] === 14) {
-                genreName[i] = "fantasy";
-
-            } else if (array[i] === 36) {
-                genreName[i] = "fistory";
-
-            } else if (array[i] === 35) {
-                genreName[i] = "comedy";
-
-            } else if (array[i] === 10752) {
-                genreName[i] = "war";
-
-            } else if (array[i] === 80) {
-                genreName[i] = "crime";
-
-            } else if (array[i] === 10402) {
-                genreName[i] = "music";
-
-            } else if (array[i] === 9648) {
-                genreName[i] = "mystery";
-
-            } else if (array[i] === 10749) {
-                genreName[i] = "romance";
-
-            } else if (array[i] === 878) {
-                genreName[i] = "sci-fi";
-
-            } else if (array[i] === 27) {
-                genreName[i] = "horror";
-
-            } else if (array[i] === 10770) {
-                genreName[i] = "tv movie";
-
-            } else if (array[i] === 53) {
-                genreName[i] = "thriller";
-
-            } else if (array[i] === 37) {
-                genreName[i] = "western";
-
-            } else if (array[i] === 12) {
-                genreName[i] = "pleasure";
-
-            }
-
-        }
+    function movieGenre(arrayMovie) {
+        var genreName=[],k=0;
+            for(let i=0;i<arrayMovie.length;i++){
+                for(let j=0;j<arrayOfGenresAPI.length;j++){
+                    if(arrayMovie[i]===arrayOfGenresAPI[j].id){
+                        genreName[k++]=arrayOfGenresAPI[j].name;
+                    }
+                }
+            }        
         return genreName;
-
     }
+    
     loadMovies();
 })();
