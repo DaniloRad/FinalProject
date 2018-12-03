@@ -44,7 +44,7 @@ body {
     text-align: center;
     display: flex;
     background-color: transparent;
-    flex: 0.5;
+    flex: 1;
     flex-direction: column;
 }
 
@@ -196,7 +196,11 @@ outline-offset: 2px;
 .load:hover{cursor: pointer;}
 
 
-
+@media only screen and (max-width: 800px) {
+    .facebook_feed{
+        display: none;
+    }
+}
 @media only screen and (max-width: 500px) {
     #prev,#next {
         display:none;
