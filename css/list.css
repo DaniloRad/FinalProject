@@ -124,18 +124,23 @@ body {
     min-width: 80px;
 }
 
-.movieList {
+.movie{
     padding: 2%;
     display: flex;
     word-wrap: break-word;
 
 }
+.movie img:hover {
+    border-radius: 10px; 
+       border: 1px solid goldenrod;
 
-.movieList:nth-child(odd) {
+}
+
+.movie:nth-child(odd) {
     border: 2px inset grey;
 }
 
-.movieList:nth-child(even) {
+.movie:nth-child(even) {
     border: 2px outset grey;
 }
 
@@ -146,6 +151,9 @@ body {
 .aboutMoviesList {
     padding-left: 2%;
     flex: 4;
+}
+.aboutMoviesList p:last-child {
+    display: none;
 }
 
 .page_num {

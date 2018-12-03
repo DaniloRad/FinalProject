@@ -32,11 +32,19 @@
 
 
     }
-    let best = document.getElementsByClassName("best")[0];
+    if(document.getElementsByClassName("best")[0]!==undefined) {
+           let best = document.getElementsByClassName("best")[0];
     best.addEventListener("click", modalWindow);
     let topRated=document.getElementsByClassName("top_rated")[0];
     topRated.addEventListener("click", modalWindow);
     
+    }
+    else {
+        let list = document.getElementsByClassName("list")[0];
+        list.addEventListener("click", modalWindow);
+
+    }
+ 
     let exitButton = document.getElementsByClassName("exit")[0];
     exitButton.addEventListener("click", exitBtn);
 

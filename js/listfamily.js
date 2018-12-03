@@ -34,16 +34,19 @@
                         let divImg = document.createElement("div");
                         divImg.setAttribute("class", "divImgList");
                         let img = document.createElement("img");
-                        img.setAttribute("src", pathToImg + arrayOfMovies[i].poster_path);
+                        img.setAttribute("src", pathToImg + mainArray[i].poster_path);
                         let p1 = document.createElement("p");
                         let p2 = document.createElement("p");
                         let p3 = document.createElement("p");
                         let p4 = document.createElement("p");
+                        let p5 = document.createElement("p");
+        
                         let movieColumn2 = document.createElement("div");
                         movieColumn2.setAttribute("class", "aboutMoviesList");
-                        p1.innerHTML = "Name: " + arrayOfMovies[i].title;
-                        p2.innerHTML = "Vote: " + arrayOfMovies[i].vote_average;
-                        p3.innerHTML = "Date: " + arrayOfMovies[i].release_date;
+                        p1.innerHTML = mainArray[i].title;
+                        p2.innerHTML = mainArray[i].vote_average;
+                        p3.innerHTML = mainArray[i].release_date;
+                        p5.innerHTML=mainArray[i].overview;
                         let arrayOfGenre = movieGenre(arrayOfMovies[i].genre_ids);
 
                         let p4_4 = arrayOfGenre[0];
@@ -57,8 +60,9 @@
 
                         movieColumn2.append(p3);
                         movieColumn2.append(p4);
+                        movieColumn2.append(p5);
                         let div = document.createElement("div");
-                        div.setAttribute("class", "movieList");
+                        div.setAttribute("class", "movie");
                         div.append(divImg);
                         div.append(movieColumn2);
                         listHTML.append(div);
@@ -72,7 +76,7 @@
             .then(function () {
 
 
-                let movies = document.getElementsByClassName("movieList");
+                let movies = document.getElementsByClassName("movie");
 
                 for (let i = 5; i < movies.length; i++) {
 
@@ -145,7 +149,7 @@
                     let obj = movieGenre(mainArray[i].genre_ids);
                     for (let i = 0; i < obj.length; i++) {
 
-                        if (obj[i].toLowerCase().indexOf("horror") > -1) {
+                        if (obj[i].toLowerCase().indexOf("family") > -1) {
 
                             displaying = true;
                             break;
@@ -160,7 +164,6 @@
                 displaying = false;
             }
             if (displaying) {
-
                 let divImg = document.createElement("div");
                 divImg.setAttribute("class", "divImgList");
                 let img = document.createElement("img");
@@ -169,26 +172,31 @@
                 let p2 = document.createElement("p");
                 let p3 = document.createElement("p");
                 let p4 = document.createElement("p");
-                let movieColumn2 = document.createElement("div");
-                movieColumn2.setAttribute("class", "aboutMoviesList");
-                p1.innerHTML = "Name: " + mainArray[i].title;
-                p2.innerHTML = "Vote: " + mainArray[i].vote_average;
-                p3.innerHTML = "Date: " + mainArray[i].release_date;
-                let arrayOfGenre = movieGenre(mainArray[i].genre_ids);
+                let p5 = document.createElement("p");
 
+
+                let movieColumn2 = document.createElement("div");
+              
+                movieColumn2.setAttribute("class", "aboutMoviesList");
+                p1.innerHTML = mainArray[i].title;
+                p2.innerHTML = mainArray[i].vote_average;
+                p3.innerHTML = mainArray[i].release_date;
+                p5.innerHTML=mainArray[i].overview;
+                let arrayOfGenre = movieGenre(mainArray[i].genre_ids);
                 let p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
                     p4_4 = p4_4 + "," + arrayOfGenre[i];
                 }
-                p4.innerHTML = "Genre: " + p4_4;
+                p4.innerHTML = p4_4;
                 divImg.append(img);
                 movieColumn2.append(p1);
                 movieColumn2.append(p2);
 
                 movieColumn2.append(p3);
                 movieColumn2.append(p4);
+                movieColumn2.append(p5);
                 let div = document.createElement("div");
-                div.setAttribute("class", "movieList animated flipInX ");
+                div.setAttribute("class", "movie animated flipInX ");
                 div.append(divImg);
                 div.append(movieColumn2);
                 listHTML.append(div);
@@ -278,7 +286,7 @@
     let cnt = 1;
 
     function load4Movies(e) {
-        let movies = document.getElementsByClassName("movieList");
+        let movies = document.getElementsByClassName("movie");
 
         if (e.target.getAttribute("id").length === 1) {
             cnt = parseInt(e.target.getAttribute("id"));
@@ -306,7 +314,7 @@
     }
 
     function limitedLoad() {
-        let movies = document.getElementsByClassName("movieList");
+        let movies = document.getElementsByClassName("movie");
         for (let i = 0; i < movies.length; i++) {
             movies[i].style.display = "none";
         }

@@ -1,0 +1,54 @@
+.modal_window {
+    background-color: black;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: rgb(238, 203, 113);
+
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
+    height: 90vh;
+    width: 90vw;
+    z-index: 1;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.exit{
+    background-color: darkred;
+    width: 1.5rem;
+    height: 1.5rem;
+position: absolute;    top: 5vh;
+    left: 5vw;
+    font-size: 1.1rem;
+    text-align: center;
+    z-index: 10;
+}
+.exit:hover {
+    color:rgb(8, 8, 8);
+    
+}
+
+.exit:hover {
+    cursor: pointer;
+}
+
+.modal_window_img {
+    padding-top: 5%;
+    flex: 1;
+}
+
+.modal_window_img img {
+    display: block;
+    margin: auto;
+    height: 90%;
+}
+
+.modal_windows_about {
+    flex: 2;
+}
+
+.modal_windows_about p {
+    font-size: 1.2rem;
+}
