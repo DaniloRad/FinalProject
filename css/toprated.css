@@ -7,37 +7,43 @@ html {
     margin-top: 5%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    width: 90%;
+    grid-template-rows: 1fr;
+    width: 100%;
     padding-top: 2%;
     margin-left: auto;
     margin-right: auto;
 
 }
-.top_rated::after {
-    content: "";
-    display: table;
-    clear: both;
-}
+
 .top_rated .movie {
-width: 100%;
 text-align: center;
 padding: 1%;
-
+width: 100%;
 }
-.movie .divImg img {
-    margin: auto;
+.top_rated .movie .divImg img {
     text-align: center;
     display: block;
-    width: 100%;
-    height: 100%;
+   
+    border: 2px dashed goldenrod;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    display: block;
+    height: 80%;
+
 }
 
-.movie .divImg {
+.top_rated .movie .divImg {
+
+    width: 90%;
+
+ 
 }
 .aboutMoviesLoad {
     padding-top: 1%;
     padding-left: 2%;
     padding-bottom: 2%;
+    text-align: center;
     flex: 0.5;
 }
 .top_rated .aboutMoviesLoad{
@@ -49,12 +55,7 @@ padding: 1%;
     padding: 0.1%;
     margin: 0.1%;
 }
-.top_rated .movie .divImg img {
-    width: 80%;
-    height: 80%;
-    border: 2px dashed goldenrod;
-    border-radius: 10px;
-}
+
 .top_rated p:last-child {
 
     display: none;

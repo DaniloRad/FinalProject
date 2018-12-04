@@ -55,7 +55,7 @@ function LoadMovies() {
 
                 let p4_4 = arrayOfGenre[0];
                 for (let i = 1; i < arrayOfGenre.length; i++) {
-                    p4_4 = p4_4 + "," + arrayOfGenre[i];
+                    p4_4 = p4_4 + ", " + arrayOfGenre[i];
                 }
                 p4.innerHTML = p4_4;
 
@@ -107,6 +107,7 @@ function LoadMovies() {
                 for(let j=0;j<arrayOfGenresAPI.length;j++){
                     if(arrayMovie[i]===arrayOfGenresAPI[j].id){
                         genreName[k++]=arrayOfGenresAPI[j].name;
+                        console.log(genreName)
                     }
                 }
             }        

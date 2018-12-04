@@ -14,7 +14,8 @@ body {
 }
 
 .search {
-    max-height: 75px;
+    height: 90px;
+    max-height: 85px;
     flex: 1;
     display: inherit;
     padding: 2%;
