@@ -108,10 +108,10 @@ body {
 }
 
 .list {
-    width: 100%;
+    width: 60%;
     background-color: transparent;
-    padding-left: 20%;
-    padding-right: 20%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
 }
@@ -179,6 +179,7 @@ body {
 .page_num {
     display: flex;
     justify-content: center;
+    padding-top: 7%;
 }
 
 .page_num a {
@@ -207,8 +208,7 @@ body {
 
 
     .list {
-        padding-left: 5%;
-        padding-right: 5%;
+        width: 80%;
     }
 
 

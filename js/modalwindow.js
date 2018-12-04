@@ -1,14 +1,19 @@
 (function () {
 
 
+
+
     function modalWindow(e) {
 
         let cnt = 0;
         let divNode = e.target;
-        while (!divNode.classList.contains("movie") && cnt < 4) {
+        while (!divNode.classList.contains("movie") && cnt < 2) {
             cnt++;
             divNode = divNode.parentElement;
         }
+        if(divNode.classList.contains("movie")) {
+
+       
         divNode = divNode.childNodes;
         //sad je divNode sig movie
         let modalWindow = document.getElementsByClassName("modal_window")[0];
@@ -29,7 +34,7 @@
         modalWindowAbout.innerHTML = htmlCode;
 
 
-
+         }
 
     }
     if (document.getElementsByClassName("best")[0] !== undefined) {
