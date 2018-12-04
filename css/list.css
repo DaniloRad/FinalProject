@@ -129,9 +129,10 @@ body {
 
 .movie {
     padding: 2%;
+    margin: 2%;
     display: flex;
     word-wrap: break-word;
-
+    
     -ms-box-shadow: 0 7px 0 #BFBAAD, 0 0.5em 0 #A8A38C, 0 12px 12px #A8A38C;
     -moz-box-shadow: 0 7px 0 #BFBAAD, 0 0.5em 0 #A8A38C, 0 12px 12px #A8A38C;
     -o-box-shadow: 0 7px 0 #BFBAAD, 0 0.5em 0 #A8A38C, 0 12px 12px #A8A38C;
@@ -144,6 +145,7 @@ body {
     -webkit-border-radius: 8px;
     border-radius: 8px;
 
+    
 
 }
 

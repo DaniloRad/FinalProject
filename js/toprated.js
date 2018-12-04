@@ -109,7 +109,6 @@ function LoadMovies() {
             for (let j = 0; j < arrayOfGenresAPI.length; j++) {
                 if (arrayMovie[i] === arrayOfGenresAPI[j].id) {
                     genreName[k++] = arrayOfGenresAPI[j].name;
-                    console.log(genreName)
                 }
             }
         }

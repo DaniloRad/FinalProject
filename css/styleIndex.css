@@ -94,7 +94,7 @@ h3 {
 
 .best .divImg img {
     width: 100%;
-
+    border-radius: 10px;
     display: block;
 
 }
@@ -193,6 +193,7 @@ h3 {
 .element img {
     width: 100%;
     height: 18rem;
+    border-radius: 10%;
 }
 
 .image {
