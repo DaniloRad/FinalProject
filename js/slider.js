@@ -5,14 +5,15 @@
     var sliderHTML = document.getElementsByClassName("slider")[0];
     document.getElementsByTagName("body")[0].onkeydown = checkKey;
     let arrayOfGenresAPI;
-    function returnArrayOfGenresAPI(){
+
+    function returnArrayOfGenresAPI() {
         fetch("https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=52fc43195daf9730aa9bd854898d0c7a")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (array) {
-            arrayOfGenresAPI = array.genres.slice(0);
-        })        
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (array) {
+                arrayOfGenresAPI = array.genres.slice(0);
+            })
     }
 
     returnArrayOfGenresAPI();
@@ -187,14 +188,15 @@
     }
 
     function movieGenre(arrayMovie) {
-        var genreName=[],k=0;
-            for(let i=0;i<arrayMovie.length;i++){
-                for(let j=0;j<arrayOfGenresAPI.length;j++){
-                    if(arrayMovie[i]===arrayOfGenresAPI[j].id){
-                        genreName[k++]=arrayOfGenresAPI[j].name;
-                    }
+        var genreName = [],
+            k = 0;
+        for (let i = 0; i < arrayMovie.length; i++) {
+            for (let j = 0; j < arrayOfGenresAPI.length; j++) {
+                if (arrayMovie[i] === arrayOfGenresAPI[j].id) {
+                    genreName[k++] = arrayOfGenresAPI[j].name;
                 }
-            }        
+            }
+        }
         return genreName;
     }
 
@@ -208,7 +210,7 @@
     body.addEventListener("touchstart", swipeDown);
     body.addEventListener("touchend", swipeUp);
     var swipeX;
-  
+
 
     function swipeDown(e) {
         swipeRight = 0;
@@ -222,7 +224,7 @@
         var xx = e.changedTouches[0].clientX;
 
         var yy = e.changedTouches[0].clientY;
-        
+
         if ((Math.abs(swipeX - xx) > 100)) {
 
             if (swipeX - xx < 0) {

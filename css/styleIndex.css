@@ -14,7 +14,7 @@ body {
 
 
 .container {
-    background-image:url("../img/bg.jpg") ;
+    background-image: url("../img/bg.jpg");
     background-size: cover;
     display: flex;
     width: 100%;
@@ -29,7 +29,7 @@ body {
 }
 
 .column_left {
-    background-image:url("../img/bg.jpg") ;
+    background-image: url("../img/bg.jpg");
 
     background-size: cover;
     flex: 4;
@@ -72,7 +72,7 @@ h3 {
 }
 
 .facebook_feed {
-    
+
     margin-top: 4%;
     margin-bottom: 4%;
 }
@@ -98,10 +98,13 @@ h3 {
     display: block;
 
 }
-.best img:hover,.top_rated img:hover {
-outline: 2px solid gold;    
-outline-offset: 2px;
+
+.best img:hover,
+.top_rated .movie .divImg img:hover {
+    border: 3px solid goldenrod;
+
 }
+
 .divImg img:hover {
     cursor: pointer;
 
@@ -181,9 +184,12 @@ outline-offset: 2px;
 #next {
     right: 0;
 }
-#next:hover,#prev:hover {
+
+#next:hover,
+#prev:hover {
     color: goldenrod;
 }
+
 .element img {
     width: 100%;
     height: 18rem;
@@ -193,19 +199,26 @@ outline-offset: 2px;
     width: 100%;
     height: 100%;
 }
-.load:hover{cursor: pointer;}
+
+.load:hover {
+    cursor: pointer;
+}
 
 
 @media only screen and (max-width: 800px) {
-    .facebook_feed{
+    .facebook_feed {
         display: none;
     }
 }
+
 @media only screen and (max-width: 500px) {
-    #prev,#next {
-        display:none;
+
+    #prev,
+    #next {
+        display: none;
     }
-.column_right {
+
+    .column_right {
         display: none;
     }
 
@@ -218,10 +231,10 @@ outline-offset: 2px;
         width: 100%;
         height: 100%;
     }
-.dropDown:hover {
+
+    .dropDown:hover {
         font-weight: bold;
         color: goldenrod;
         margin: 2%;
     }
 }
-  

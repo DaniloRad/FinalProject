@@ -9,8 +9,8 @@
         let movie = document.getElementsByClassName("movie");
         for (let i = cnt; i < cnt + 3; i++) {
 
-            if(movie[i]!=undefined)
-            movie[i].style.display = "block";
+            if (movie[i] != undefined)
+                movie[i].style.display = "block";
         }
         cnt = cnt + 3;
 

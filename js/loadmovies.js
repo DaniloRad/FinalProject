@@ -1,10 +1,10 @@
-function main (genre) {
+function main(genre) {
 
     let mainArray;
     let arrayOfGenresAPI;
 
-    
-    
+
+
     function returnArrayOfGenresAPI() {
         fetch("https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=52fc43195daf9730aa9bd854898d0c7a")
             .then(function (response) {
@@ -19,6 +19,7 @@ function main (genre) {
 
 
     loadMovies();
+
     function loadMovies() {
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=9c53b0110d5f6cbf16a45d461096b221&page=1")
             .then(function (response) {
@@ -69,7 +70,7 @@ function main (genre) {
     search_button.addEventListener("click", (function () {
         searchForMovie(mark.value)
     }));
-    document.getElementsByTagName("body")[0].addEventListener("keydown",checkKey);
+    document.getElementsByTagName("body")[0].addEventListener("keydown", checkKey);
 
     function checkKey(e) {
         if (e.keyCode === 13) {
@@ -91,65 +92,29 @@ function main (genre) {
 
             let displaying = false;
 
-            if(genre==="none") {
-            if (filter === "title") {
+            if (genre === "none") {
+                if (filter === "title") {
 
-                if (mainArray[i].title.toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
-
-                    displaying = true;
-
-                }
-            } else if (filter === "release_date") {
-
-                if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
-
-                    displaying = true;
-
-                }
-
-            } else if (filter === "genre_ids") {
-
-                let obj = MovieGenre(mainArray[i].genre_ids);
-                for (let i = 0; i < obj.length; i++) {
-
-
-                    if (obj[i].toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
+                    if (mainArray[i].title.toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
 
                         displaying = true;
-                        break;
+
+                    }
+                } else if (filter === "release_date") {
+
+                    if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
+
+                        displaying = true;
 
                     }
 
-                }
+                } else if (filter === "genre_ids") {
 
-            }
-        }
-        else {
-
-            if (filter === "title") {
-
-                if (mainArray[i].title.toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
-
-                    let obj = movieGenre(mainArray[i].genre_ids);
+                    let obj = MovieGenre(mainArray[i].genre_ids);
                     for (let i = 0; i < obj.length; i++) {
 
-                        if (obj[i].toLowerCase().indexOf(genre) > -1) {
 
-                            displaying = true;
-                            break;
-
-                        }
-
-                    }
-                }
-            } else if (filter === "release_date") {
-
-                if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
-
-                    let obj = movieGenre(mainArray[i].genre_ids);
-                    for (let i = 0; i < obj.length; i++) {
-
-                        if (obj[i].toLowerCase().indexOf(genre) > -1) {
+                        if (obj[i].toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
 
                             displaying = true;
                             break;
@@ -159,10 +124,45 @@ function main (genre) {
                     }
 
                 }
+            } else {
+
+                if (filter === "title") {
+
+                    if (mainArray[i].title.toLowerCase().indexOf(search_input.toLowerCase()) > -1) {
+
+                        let obj = movieGenre(mainArray[i].genre_ids);
+                        for (let i = 0; i < obj.length; i++) {
+
+                            if (obj[i].toLowerCase().indexOf(genre) > -1) {
+
+                                displaying = true;
+                                break;
+
+                            }
+
+                        }
+                    }
+                } else if (filter === "release_date") {
+
+                    if (mainArray[i].release_date.indexOf(search_input.toLowerCase()) > -1) {
+
+                        let obj = movieGenre(mainArray[i].genre_ids);
+                        for (let i = 0; i < obj.length; i++) {
+
+                            if (obj[i].toLowerCase().indexOf(genre) > -1) {
+
+                                displaying = true;
+                                break;
+
+                            }
+
+                        }
+
+                    }
+                }
+
+
             }
-
-
-        }
             if (mark > mainArray[i].vote_average) {
                 displaying = false;
             }
@@ -193,9 +193,9 @@ function main (genre) {
 
 
     function displayMovieLoop(mainArray) {
-      
+
         for (let i = 0; i < mainArray.length; i++) {
-                displayMovie(mainArray[i]);
+            displayMovie(mainArray[i]);
         }
 
     }
@@ -314,8 +314,8 @@ function main (genre) {
         searchForMovie(e.target.value);
         document.getElementById("vote_average_value").innerHTML = e.target.value;
 
-    } 
-     (function () {
+    }
+    (function () {
 
         let clickToDisplay = document.getElementById("click_display_filters");
         clickToDisplay.addEventListener("click", function () {
@@ -332,8 +332,8 @@ function main (genre) {
 
     })();
 };
-  
 
-    let className=document.getElementsByTagName("body")[0].getAttribute("class");
+
+let className = document.getElementsByTagName("body")[0].getAttribute("class");
 
 main(className);

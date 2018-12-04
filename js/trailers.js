@@ -1,5 +1,14 @@
 (function () {
-    document.getElementById("search_button").addEventListener("click", test)
+    document.getElementById("search_button").addEventListener("click", test);
+    document.getElementsByTagName("body")[0].onkeydown = checkKey;
+
+    function checkKey(e) {
+
+        if (e.keyCode === 13) {
+            test();
+        }
+
+    }
 
     function test() {
 
@@ -18,25 +27,32 @@
                 return myJson.items;
             })
             .then(function (items) {
-                let iframe;
                 let div = document.getElementsByClassName("video")[0];
-                div.innerHTML = "";
-                for (let i = 0; i < 5; i++) {
-                    iframe = document.createElement("iframe");
-                    iframe.setAttribute("src", link + items[i].id.videoId);
-                    div.append(iframe);
+
+                if (items.length === 0) {
+
+                    div.innerHTML = "No trailer with that name."
+                } else {
+                    let iframe;
+                    div.innerHTML = "";
+                    for (let i = 0; i < 5; i++) {
+                        iframe = document.createElement("iframe");
+                        iframe.setAttribute("src", link + items[i].id.videoId);
+                        div.append(iframe);
 
 
+                    }
                 }
 
+
             })
-            .catch(function() {
+            .catch(function () {
 
                 let div = document.getElementsByClassName("video")[0];
-                div.innerHTML="Error with database";
+                div.innerHTML = "Error with database";
             })
 
     };
     test();
-    
+
 })();

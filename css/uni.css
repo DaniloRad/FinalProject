@@ -171,7 +171,7 @@ body {
     display: flex;
 }
 
-strong{
+strong {
     font-weight: bold;
     color: goldenrod;
 }
@@ -187,7 +187,7 @@ strong{
     display: block;
 }
 
-.logo a{
+.logo a {
     width: 100%;
     height: 100%;
 }

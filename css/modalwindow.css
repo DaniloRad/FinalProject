@@ -1,5 +1,5 @@
 .modal_window {
-    background-color: black;
+    background-image: url("../img/bg.jpg");
     font-family: "Comic Sans MS", cursive, sans-serif;
     color: rgb(238, 203, 113);
 
@@ -15,19 +15,21 @@
     overflow-y: scroll;
 }
 
-.exit{
+.exit {
     background-color: darkred;
     width: 1.5rem;
     height: 1.5rem;
-position: absolute;    top: 5vh;
+    position: absolute;
+    top: 5vh;
     left: 5vw;
     font-size: 1.1rem;
     text-align: center;
     z-index: 10;
 }
+
 .exit:hover {
-    color:rgb(8, 8, 8);
-    
+    color: rgb(8, 8, 8);
+
 }
 
 .exit:hover {

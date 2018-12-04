@@ -3,14 +3,15 @@ function LoadMovies() {
     var mainArray;
 
     let arrayOfGenresAPI;
-    function returnArrayOfGenresAPI(){
+
+    function returnArrayOfGenresAPI() {
         fetch("https://api.themoviedb.org/3/genre/movie/list?language=en-US&api_key=52fc43195daf9730aa9bd854898d0c7a")
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (array) {
-            arrayOfGenresAPI = array.genres.slice(0);
-        })        
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (array) {
+                arrayOfGenresAPI = array.genres.slice(0);
+            })
     }
 
     returnArrayOfGenresAPI();
@@ -102,15 +103,16 @@ function LoadMovies() {
 
 
     function movieGenre(arrayMovie) {
-        var genreName=[],k=0;
-            for(let i=0;i<arrayMovie.length;i++){
-                for(let j=0;j<arrayOfGenresAPI.length;j++){
-                    if(arrayMovie[i]===arrayOfGenresAPI[j].id){
-                        genreName[k++]=arrayOfGenresAPI[j].name;
-                        console.log(genreName)
-                    }
+        var genreName = [],
+            k = 0;
+        for (let i = 0; i < arrayMovie.length; i++) {
+            for (let j = 0; j < arrayOfGenresAPI.length; j++) {
+                if (arrayMovie[i] === arrayOfGenresAPI[j].id) {
+                    genreName[k++] = arrayOfGenresAPI[j].name;
+                    console.log(genreName)
                 }
-            }        
+            }
+        }
         return genreName;
     }
 };
